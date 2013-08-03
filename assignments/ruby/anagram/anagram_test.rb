@@ -25,13 +25,7 @@ class AnagramTest < MiniTest::Unit::TestCase
   def test_does_not_confuse_different_duplicates
     skip
     detector = Anagram.new('abb')
-    assert_equal [], detector.match(['aab'])
-  end
-
-  def test_eliminate_anagrams_with_same_checksum
-    skip
-    detector = Anagram.new('abb')
-    assert_equal [], detector.match(['aac'])
+    assert_equal [], detector.match(['baa'])
   end
 
   def test_detect_anagram
