@@ -78,9 +78,10 @@ begin
 rescue LoadError => e
 
   def explain(something)
+    7.times { puts }
     puts "Hit enter to continue..."
     gets
-    puts "\033c"
+    7.times { puts }
     puts something
     puts
   end

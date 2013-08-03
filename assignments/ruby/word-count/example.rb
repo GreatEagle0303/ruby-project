@@ -1,8 +1,4 @@
-class Phrase
-
-  def initialize(source)
-    @source = source
-  end
+class Phrase < String
 
   def word_count
     data = Hash.new(0)
@@ -14,10 +10,8 @@ class Phrase
 
   private
 
-  attr_reader :source
-
   def each_word
-    source.downcase.scan(/\w+/) do |word|
+    downcase.split(/\W+/).each do |word|
       yield word
     end
   end
