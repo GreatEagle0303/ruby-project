@@ -1,13 +1,13 @@
 ### Example 1 ###
 
 class Bob
+
   def hey(drivel)
-    case
-    when taciturn?(drivel)
+    if taciturn?(drivel)
       'Fine. Be that way!'
-    when forceful?(drivel)
+    elsif forceful?(drivel)
       'Woah, chill out!'
-    when curious?(drivel)
+    elsif curious?(drivel)
       'Sure.'
     else
       'Whatever.'
@@ -17,7 +17,7 @@ class Bob
   private
 
   def taciturn?(s)
-    s.nil? || s.strip.empty?
+    s.nil? || s.empty?
   end
 
   def curious?(s)
@@ -27,22 +27,23 @@ class Bob
   def forceful?(s)
     s.upcase == s
   end
+
 end
 
 ### Example 2 ###
 
 class Alice
+
   def hey(drivel)
-    respond_to Phrase.new(drivel)
+    respond_to Phrase.new(drivel.to_s)
   end
 
   def respond_to(phrase)
-    case
-    when phrase.silent?
+    if phrase.silent?
       'Fine. Be that way!'
-    when phrase.loud?
+    elsif phrase.loud?
       'Woah, chill out!'
-    when phrase.quizzical?
+    elsif phrase.quizzical?
       'Sure.'
     else
       'Whatever.'
@@ -50,24 +51,18 @@ class Alice
   end
 end
 
-class Phrase
+class Phrase < String
 
-  attr_reader :source
-  def initialize(drivel)
-    @source = drivel.to_s.strip
-  end
+  alias_method :silent?, :empty?
 
   def quizzical?
-    source.end_with?('?')
+    end_with?('?')
   end
 
   def loud?
-    source.upcase == source
+    upcase == self
   end
 
-  def silent?
-    source.empty?
-  end
 end
 
 ### Example 3 ###
@@ -93,7 +88,7 @@ end
 class AnswerSilence
 
   def self.handles?(input)
-    input.nil? || input.strip.empty?
+    input.nil? || input.empty?
   end
 
   def reply
@@ -144,7 +139,7 @@ class David
   Handler = Struct.new(:response, :pattern)
 
   HANDLERS = {
-    :nothing   => Handler.new("Fine. Be that way!", ->(i) { i.nil? || i.strip.empty? }),
+    :nothing   => Handler.new("Fine. Be that way!", ->(i) { i.nil? || i.empty? }),
     :yell      => Handler.new("Woah, chill out!",   ->(i) { i.eql?(i.upcase) }),
     :question  => Handler.new("Sure.",              ->(i) { i.end_with?("?") }),
     :statement => Handler.new("Whatever.",          ->(i) { true })
