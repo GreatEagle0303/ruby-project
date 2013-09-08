@@ -1,4 +1,4 @@
-class PhoneNumber
+class Phone
 
   attr_reader :number
   def initialize(number)
