@@ -3,7 +3,7 @@ require_relative 'cipher'
 
 class RandomKeyCipherTest < MiniTest::Unit::TestCase
   def setup
-    @cipher = Cipher.new
+    @cipher = Cipher.new(nil)
   end
 
   def test_cipher_key_is_letters
