@@ -66,8 +66,7 @@
     "pascals-triangle",
     "custom-set",
     "minesweeper",
-    "scale-generator",
-    "protein-translation"
+    "scale-generator"
   ],
   "deprecated": [
     "octal",

@@ -32,14 +32,14 @@ class HammingTest < MiniTest::Unit::TestCase
     assert_equal 1, Hamming.compute('GGACG', 'GGTCG')
   end
 
-  def test_nonunique_characters_within_first_strand
+  def test_ignores_extra_length_on_first_strand_when_longer
     skip
-    assert_equal 1, Hamming.compute('AGA', 'AGG')
+    assert_equal 1, Hamming.compute('AGAGACTTA', 'AAA')
   end
 
-  def test_nonunique_characters_within_second_strand
+  def test_ignores_extra_length_on_other_strand_when_longer
     skip
-    assert_equal 1, Hamming.compute('AGG', 'AGA')
+    assert_equal 2, Hamming.compute('AGG', 'AAAACTGACCCACCCCAGG')
   end
 
   def test_large_hamming_distance
@@ -64,11 +64,11 @@ The most important part of the error is
 
       cannot load such file
 
-It's looking for a file named hamming.rb that doesn't
+It's looking for a file named bob.rb that doesn't
 exist yet.
 
-To fix the error, create an empty file named hamming.rb
-in the same directory as the hamming_test.rb file.
+To fix the error, create an empty file named bob.rb
+in the same directory as the bob_test.rb file.
 
 Then run the test again.
 
