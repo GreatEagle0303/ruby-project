@@ -1,4 +1,5 @@
 class Anagram
+
   attr_reader :subject
   def initialize(word)
     @subject = AnagramSubject.new(word)
@@ -12,6 +13,7 @@ class Anagram
 end
 
 class AnagramSubject
+
   attr_reader :subject
   def initialize(subject)
     @subject = subject
@@ -33,3 +35,4 @@ class AnagramSubject
     @fingerprint ||= canonicalize(subject)
   end
 end
+

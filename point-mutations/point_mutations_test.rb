@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'dna'
 
 class DNATest < MiniTest::Unit::TestCase
+
   def test_no_difference_between_empty_strands
     assert_equal 0, DNA.new('').hamming_distance('')
   end
@@ -18,9 +19,7 @@ class DNATest < MiniTest::Unit::TestCase
 
   def test_hamming_distance_in_off_by_one_strand
     skip
-    strand = 'GGACGGATTCTGACCTGGACTAATTTTGGGG'
-    distance = 'AGGACGGATTCTGACCTGGACTAATTTTGGGG'
-    assert_equal 19, DNA.new(strand).hamming_distance(distance)
+    assert_equal 19, DNA.new('GGACGGATTCTGACCTGGACTAATTTTGGGG').hamming_distance('AGGACGGATTCTGACCTGGACTAATTTTGGGG')
   end
 
   def test_small_hamming_distance_in_middle_somewhere
@@ -40,9 +39,7 @@ class DNATest < MiniTest::Unit::TestCase
 
   def test_ignores_extra_length_on_original_strand_when_longer
     skip
-    strand = 'GACTACGGACAGGGTAGGGAAT'
-    distance = 'GACATCGCACACC'
-    assert_equal 5, DNA.new(strand).hamming_distance(distance)
+    assert_equal 5, DNA.new('GACTACGGACAGGGTAGGGAAT').hamming_distance('GACATCGCACACC')
   end
 
   def test_does_not_actually_shorten_original_strand
@@ -52,4 +49,5 @@ class DNATest < MiniTest::Unit::TestCase
     assert_equal 4, dna.hamming_distance('AGACATCTTTCAGCCGCCGGATTAGGCAA')
     assert_equal 1, dna.hamming_distance('AGG')
   end
+
 end

@@ -2,8 +2,9 @@ require 'minitest/autorun'
 require_relative 'luhn'
 
 class LuhnTest < MiniTest::Unit::TestCase
+
   def test_addends
-    luhn = Luhn.new(12_121)
+    luhn = Luhn.new(12121)
     assert_equal [1, 4, 1, 4, 1], luhn.addends
   end
 
@@ -21,7 +22,7 @@ class LuhnTest < MiniTest::Unit::TestCase
 
   def test_checksum_again
     skip
-    luhn = Luhn.new(201_773)
+    luhn = Luhn.new(201773)
     assert_equal 21, luhn.checksum
   end
 
@@ -33,7 +34,7 @@ class LuhnTest < MiniTest::Unit::TestCase
 
   def test_valid_number
     skip
-    luhn = Luhn.new(8_739_567)
+    luhn = Luhn.new(8739567)
     assert luhn.valid?
   end
 
@@ -45,13 +46,14 @@ class LuhnTest < MiniTest::Unit::TestCase
 
   def test_create_other_valid_number
     skip
-    number = Luhn.create(873_956)
-    assert_equal 8_739_567, number
+    number = Luhn.create(873956)
+    assert_equal 8739567, number
   end
 
   def test_create_yet_another_valid_number
     skip
-    number = Luhn.create(837_263_756)
-    assert_equal 8_372_637_564, number
+    number = Luhn.create(837263756)
+    assert_equal 8372637564, number
   end
+
 end

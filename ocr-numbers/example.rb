@@ -1,4 +1,5 @@
 class OCR
+
   attr_reader :text
   def initialize(text)
     @text = text.split("\n")
@@ -15,7 +16,7 @@ class OCR
   private
 
   def format(numbers)
-    numbers.map(&:join).join(',')
+    numbers.map {|values| values.join}.join(',')
   end
 
   def values_in_row(row)
@@ -44,10 +45,10 @@ class OCR
 
   def pattern_at(row, column)
     [
-      text[row][column, 3],
-      text[row + 1][column, 3],
-      text[row + 2][column, 3],
-      text[row + 3][column, 3]
+      text[row][column,3],
+      text[row+1][column,3],
+      text[row+2][column,3],
+      text[row+3][column,3]
     ]
   end
 
@@ -60,21 +61,22 @@ class OCR
   end
 
   def garble
-    '?'
+    "?"
   end
 
   def value(pattern)
     {
-      [' _ ', '| |', '|_|', '   '] => '0',
-      ['   ', '  |', '  |', '   '] => '1',
-      [' _ ', ' _|', '|_ ', '   '] => '2',
-      [' _ ', ' _|', ' _|', '   '] => '3',
-      ['   ', '|_|', '  |', '   '] => '4',
-      [' _ ', '|_ ', ' _|', '   '] => '5',
-      [' _ ', '|_ ', '|_|', '   '] => '6',
-      [' _ ', '  |', '  |', '   '] => '7',
-      [' _ ', '|_|', '|_|', '   '] => '8',
-      [' _ ', '|_|', ' _|', '   '] => '9'
+      [" _ ", "| |", "|_|", "   "] => "0",
+      ["   ", "  |", "  |", "   "] => "1",
+      [" _ ", " _|", "|_ ", "   "] => "2",
+      [" _ ", " _|", " _|", "   "] => "3",
+      ["   ", "|_|", "  |", "   "] => "4",
+      [" _ ", "|_ ", " _|", "   "] => "5",
+      [" _ ", "|_ ", "|_|", "   "] => "6",
+      [" _ ", "  |", "  |", "   "] => "7",
+      [" _ ", "|_|", "|_|", "   "] => "8",
+      [" _ ", "|_|", " _|", "   "] => "9"
     }[pattern]
   end
+
 end

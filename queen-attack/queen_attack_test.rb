@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'queens'
 
 class QueensTest < MiniTest::Unit::TestCase
+
   def test_default_positions
     queens = Queens.new
     assert_equal [0, 3], queens.white
@@ -122,3 +123,4 @@ _ _ _ _ _ _ _ _
     assert queens.attack?
   end
 end
+

@@ -1,4 +1,5 @@
 class Trinary
+
   BASE = 3
 
   attr_reader :digits

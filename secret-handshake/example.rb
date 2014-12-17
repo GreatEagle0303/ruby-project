@@ -1,9 +1,12 @@
 class SecretHandshake
+
   attr_reader :digits
   def initialize(decimal)
-    @digits = decimal.to_s(2).reverse.chars.collect(&:to_i)
-  rescue ArgumentError
-    @digits = 0
+    begin
+      @digits = decimal.to_s(2).reverse.chars.collect(&:to_i)
+    rescue ArgumentError
+      @digits = 0
+    end
   end
 
   def commands
@@ -23,6 +26,7 @@ class SecretHandshake
   private
 
   def signals
-    ['wink', 'double blink', 'close your eyes', 'jump']
+    ["wink", "double blink", "close your eyes", "jump"]
   end
+
 end

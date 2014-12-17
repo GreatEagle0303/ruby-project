@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'anagram'
 
 class AnagramTest < MiniTest::Unit::TestCase
+
   def test_no_matches
     detector = Anagram.new('diaper')
     assert_equal [], detector.match(%w(hello world zombies pants))
@@ -10,15 +11,15 @@ class AnagramTest < MiniTest::Unit::TestCase
   def test_detect_simple_anagram
     skip
     detector = Anagram.new('ant')
-    anagrams = detector.match(%w(tan stand at))
+    anagrams = detector.match(['tan', 'stand', 'at'])
     assert_equal ['tan'], anagrams
   end
 
   def test_detect_multiple_anagrams
     skip
     detector = Anagram.new('master')
-    anagrams = detector.match(%w(stream pigeon maters))
-    assert_equal %w(maters stream), anagrams.sort
+    anagrams = detector.match(['stream', 'pigeon', 'maters'])
+    assert_equal ['maters', 'stream'], anagrams.sort
   end
 
   def test_does_not_confuse_different_duplicates
@@ -43,7 +44,7 @@ class AnagramTest < MiniTest::Unit::TestCase
   def test_eliminate_anagram_subsets
     skip
     detector = Anagram.new('good')
-    assert_equal [], detector.match(%w(dog goody))
+    assert_equal [], detector.match(['dog', 'goody'])
   end
 
   def test_detect_anagram
@@ -57,7 +58,7 @@ class AnagramTest < MiniTest::Unit::TestCase
     skip
     detector = Anagram.new('allergy')
     anagrams = detector.match %w(gallery ballerina regally clergy largely leading)
-    assert_equal %w(gallery largely regally), anagrams.sort
+    assert_equal ['gallery', 'largely', 'regally'], anagrams.sort
   end
 
   def test_anagrams_are_case_insensitive

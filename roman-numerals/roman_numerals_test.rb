@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'roman'
 
 class RomanTest < MiniTest::Unit::TestCase
+
   def test_1
     assert_equal 'I', 1.to_roman
   end
@@ -35,6 +36,7 @@ class RomanTest < MiniTest::Unit::TestCase
     skip
     assert_equal 'IX', 9.to_roman
   end
+
 
   def test_27
     skip
@@ -90,4 +92,5 @@ class RomanTest < MiniTest::Unit::TestCase
     skip
     assert_equal 'MMM', 3000.to_roman
   end
+
 end

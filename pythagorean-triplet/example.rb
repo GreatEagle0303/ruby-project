@@ -1,4 +1,5 @@
 class Triplets
+
   attr_reader :factors, :sum
   def initialize(conditions)
     min = conditions.fetch(:min_factor) { 1 }
@@ -27,6 +28,7 @@ class Triplets
 end
 
 class Triplet
+
   def self.where(conditions)
     Triplets.new(conditions).to_a
   end
@@ -50,3 +52,4 @@ class Triplet
     a**2 + b**2 == c**2
   end
 end
+

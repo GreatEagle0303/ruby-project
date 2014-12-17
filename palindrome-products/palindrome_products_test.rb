@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'palindromes'
 
 class PalindromesTest < MiniTest::Unit::TestCase
+
   def test_largest_palindrome_from_single_digit_factors
     palindromes = Palindromes.new(max_factor: 9)
     palindromes.generate
@@ -33,7 +34,7 @@ class PalindromesTest < MiniTest::Unit::TestCase
     palindromes = Palindromes.new(max_factor: 999, min_factor: 100)
     palindromes.generate
     largest = palindromes.largest
-    assert_equal 906_609, largest.value
+    assert_equal 906609, largest.value
     assert_equal [[913, 993]], largest.factors
   end
 
@@ -42,7 +43,8 @@ class PalindromesTest < MiniTest::Unit::TestCase
     palindromes = Palindromes.new(max_factor: 999, min_factor: 100)
     palindromes.generate
     smallest = palindromes.smallest
-    assert_equal 10_201, smallest.value
+    assert_equal 10201, smallest.value
     assert_equal [[101, 101]], smallest.factors
   end
+
 end

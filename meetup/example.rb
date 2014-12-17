@@ -1,4 +1,5 @@
 class Meetup
+
   def self.days_of_week
     [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday]
   end
@@ -42,3 +43,4 @@ class Meetup
     (self.class.weekday_number(weekday) - day.wday) % 7
   end
 end
+

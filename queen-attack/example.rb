@@ -1,9 +1,10 @@
 class Queens
+
   attr_reader :white, :black
   def initialize(positions = {})
     @white = positions.fetch(:white) { [0, 3] }
     @black = positions.fetch(:black) { [7, 3] }
-    fail ArgumentError if white == black
+    raise ArgumentError if white == black
   end
 
   def attack?
@@ -17,7 +18,7 @@ class Queens
       (0..7).each do |column|
         positions << draw(row, column)
       end
-      board[row] = positions.join(' ')
+      board[row] = positions.join(" ")
     end
     board.join("\n")
   end
@@ -46,10 +47,11 @@ class Queens
 
   def draw(row, column)
     case [row, column]
-    when white then 'W'
-    when black then 'B'
+    when white then "W"
+    when black then "B"
     else
-      '_'
+      "_"
     end
   end
+
 end

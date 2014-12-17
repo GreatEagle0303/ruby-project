@@ -1,12 +1,14 @@
 class Nucleotide
   def self.from_dna(strand)
     acids = strand.chars
-    fail ArgumentError.new("Invalid DNA #{strand}") unless acids.all?(&validate)
+    unless acids.all?(&validate)
+      raise ArgumentError.new("Invalid DNA #{strand}")
+    end
     new(acids)
   end
 
   def self.validate
-    proc { |acid| %w(A C G T).include?(acid) }
+    Proc.new {|acid| %w(A C G T).include?(acid)}
   end
 
   attr_reader :acids

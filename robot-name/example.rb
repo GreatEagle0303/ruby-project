@@ -21,3 +21,4 @@ class Robot
     ('A'..'Z').to_a
   end
 end
+

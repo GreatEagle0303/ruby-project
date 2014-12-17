@@ -53,7 +53,7 @@ class Chunk
   end
 
   def hundreds?
-    !hundreds.zero?
+    not hundreds.zero?
   end
 
   def zero?
@@ -66,20 +66,22 @@ class Chunk
 
   def small_numbers
     [nil] +
-      %w(one two three four five
-         six seven eight nine ten
-         eleven twelve thirteen fourteen fifteen
-         sixteen seventeen eighteen nineteen)
+    %w(one two three four five
+       six seven eight nine ten
+       eleven twelve thirteen fourteen fifteen
+       sixteen seventeen eighteen nineteen)
   end
 
   def decades
     [nil, nil] +
-      %w(twenty thirty forty fifty
-         sixty seventy eighty ninety)
+    %w(twenty thirty forty fifty
+       sixty seventy eighty ninety)
   end
+
 end
 
 class Say
+
   ONE_BILLION = 10**9
   ONE_MILLION = 10**6
 
@@ -117,7 +119,7 @@ class Say
   def guard_range
     unless in_range?
       message = 'Number must be between 0 and 999,999,999,999 inclusive.'
-      fail ArgumentError.new(message)
+      raise ArgumentError.new(message)
     end
   end
 
@@ -125,3 +127,4 @@ class Say
     value >= 0 && value < 10**12
   end
 end
+

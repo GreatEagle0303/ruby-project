@@ -1,4 +1,5 @@
 class Binary
+
   attr_reader :digits
   def initialize(decimal)
     @digits = normalize(decimal).reverse.chars.collect(&:to_i)
@@ -13,6 +14,6 @@ class Binary
   private
 
   def normalize(string)
-    string.match(/[^01]/) ? '0' : string
+    string.match(/[^01]/) ? "0" : string
   end
 end

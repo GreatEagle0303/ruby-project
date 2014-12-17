@@ -2,6 +2,7 @@ class TriangleError < RuntimeError
 end
 
 class Triangle
+
   attr_reader :a, :b, :c
   def initialize(a, b, c)
     @a = a
@@ -10,7 +11,7 @@ class Triangle
   end
 
   def kind
-    fail TriangleError if illegal?
+    raise TriangleError if illegal?
     if equilateral?
       :equilateral
     elsif isosceles?

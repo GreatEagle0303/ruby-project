@@ -1,4 +1,5 @@
 class Phrase
+
   def initialize(source)
     @source = source
   end
@@ -20,4 +21,5 @@ class Phrase
       yield word
     end
   end
+
 end

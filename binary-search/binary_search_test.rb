@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative 'binary'
 
 class BinarySearchTest < MiniTest::Unit::TestCase
+
   def test_it_has_list_data
     binary = BinarySearch.new([1, 3, 4, 6, 8, 9, 11])
     assert_equal [1, 3, 4, 6, 8, 9, 11], binary.list

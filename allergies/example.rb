@@ -1,5 +1,8 @@
 class Allergies
-  ALLERGENS = %w(eggs peanuts shellfish strawberries tomatoes chocolate pollen cats)
+  ALLERGENS = [
+    "eggs", "peanuts", "shellfish", "strawberries",
+    "tomatoes", "chocolate", "pollen", "cats"
+  ]
 
   def initialize(score)
     @score = score
@@ -21,6 +24,6 @@ class Allergies
   def allergic_to?(item)
     index = ALLERGENS.index(item)
     # Use a Binary AND to see if this allergen's bit is active or not.
-    @score & (2**index) > 0
+    @score & (2 ** index) > 0
   end
 end

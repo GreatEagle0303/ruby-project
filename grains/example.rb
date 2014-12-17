@@ -1,6 +1,7 @@
 class Grains
+
   def square(number)
-    2**(number - 1)
+    2**(number-1)
   end
 
   def total
@@ -8,4 +9,5 @@ class Grains
       sum + square(number)
     end
   end
+
 end

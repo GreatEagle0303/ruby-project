@@ -1,4 +1,5 @@
 class ETL
+
   def self.transform(old)
     data = {}
     old.each do |k, v|
@@ -8,4 +9,5 @@ class ETL
     end
     data
   end
+
 end
