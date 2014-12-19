@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require_relative 'atbash'
 
-# rubocop:disable Style/MethodName
 class AtbashTest < MiniTest::Unit::TestCase
   def test_encode_no
     assert_equal 'ml', Atbash.encode('no')
@@ -29,8 +28,7 @@ class AtbashTest < MiniTest::Unit::TestCase
 
   def test_encode_numbers
     skip
-    assert_equal('gvhgr mt123 gvhgr mt',
-                 Atbash.encode('Testing, 1 2 3, testing.'))
+    assert_equal 'gvhgr mt123 gvhgr mt', Atbash.encode('Testing, 1 2 3, testing.')
   end
 
   def test_encode_sentence
