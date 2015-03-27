@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'robot_name'
+require_relative 'robot'
 
 class RobotTest < Minitest::Test
   def test_has_name

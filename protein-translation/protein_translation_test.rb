@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'protein_translation'
+require_relative 'translation'
 
 # rubocop:disable Style/MethodName
 class TranslationTest < Minitest::Test

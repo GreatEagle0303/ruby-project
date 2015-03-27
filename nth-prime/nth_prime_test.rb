@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'nth_prime'
+require_relative 'prime'
 
 class TestPrimes < Minitest::Test
   def test_first

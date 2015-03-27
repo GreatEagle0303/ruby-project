@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'queen_attack'
+require_relative 'queens'
 
 class QueensTest < Minitest::Test
   def test_default_positions

@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'accumulate'
+require_relative 'array'
 
 class ArrayTest < Minitest::Test
   def test_empty_accumulation
