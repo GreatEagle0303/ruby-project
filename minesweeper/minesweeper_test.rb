@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'minesweeper'
+require_relative 'minesweeper.rb'
 
 class MinesweeperTest < Minitest::Test
   def test_transform1

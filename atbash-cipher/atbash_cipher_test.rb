@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'atbash_cipher'
+require_relative 'atbash'
 
 # rubocop:disable Style/MethodName
 class AtbashTest < Minitest::Test

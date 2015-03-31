@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'difference_of_squares'
+require_relative 'squares'
 
 class SquaresTest < Minitest::Test
   def test_square_of_sums_to_5
