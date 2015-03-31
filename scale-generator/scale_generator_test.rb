@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'scale'
+require_relative 'scale_generator'
 
 class ScaleGeneratorTest < Minitest::Test
   def test_naming_scale
@@ -22,6 +22,14 @@ class ScaleGeneratorTest < Minitest::Test
     chromatic = Scale.new('F', :chromatic)
     expected = %w(F Gb G Ab A Bb B C Db D Eb E)
     actual = chromatic.pitches
+    assert_equal expected, actual
+  end
+
+  def test_naming_major_scale
+    skip
+    major = Scale.new('G', :major, 'MMmMMMm')
+    expected = 'G major'
+    actual = major.name
     assert_equal expected, actual
   end
 
