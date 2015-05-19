@@ -17,9 +17,6 @@ Run the test with `ruby path/to/the_test.rb`.
 At the moment the Ruby problems `skip` all but the first test, in order to not
 overwhelm people with errors.
 
-If you would like color output, you can `require 'minitest/pride'` in
-the test file.
-
 If you want to temporarily disable the skips while working on a problem, you can
 define an empty `skip` method in the test suite:
 
@@ -29,6 +26,19 @@ end
 ```
 
 Just remember to delete it before submitting the problem.
+
+## Generated Problems
+
+Some problems have shared inputs/outputs across multiple tracks. If the problem
+contains an `example.tt` file, then look for a generator corresponding to the problem
+within the `bin/` directory.
+
+For example, the Hamming problem can be re-generated from the shared test data
+with the following command:
+
+```bash
+bin/generate-hamming
+```
 
 ## Pull Requests
 
