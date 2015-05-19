@@ -3,7 +3,7 @@ class Element
   attr_reader :next
 
   def self.from_a(arr)
-    arr.reverse_each.inject(NullElement.new) { |memo, obj| new(obj, memo) }
+    arr.reverse_each.inject(nil) { |memo, obj| new(obj, memo) }
   end
 
   def self.each_datum(elem)
@@ -25,7 +25,7 @@ class Element
     res
   end
 
-  def initialize(datum, next_element = NullElement.new)
+  def initialize(datum, next_element = nil)
     @datum = datum
     @next = next_element
   end
@@ -40,27 +40,5 @@ class Element
 
   def reverse
     self.class.reverse(self)
-  end
-end
-
-class NullElement
-  def to_a
-    []
-  end
-
-  def reverse
-    self
-  end
-
-  def datum
-    nil
-  end
-
-  def next
-    nil
-  end
-
-  def nil?
-    true
   end
 end
