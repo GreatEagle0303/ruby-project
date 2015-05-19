@@ -76,8 +76,7 @@
     "point-mutations"
   ],
   "ignored": [
-    "docs",
-    "lib"
+    "docs"
   ],
   "foregone": [
 
