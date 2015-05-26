@@ -1,4 +1,3 @@
-gem 'minitest', '>= 5.0.0'
 require 'date'
 require 'minitest/autorun'
 require_relative 'leap'
