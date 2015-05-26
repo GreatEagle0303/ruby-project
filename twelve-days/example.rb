@@ -1,17 +1,15 @@
-module TwelveDays
-  VERSION = 1
-
-  def self.song
+class TwelveDaysSong
+  def sing
     verses(1, 12)
   end
 
-  def self.verses(first, last)
+  def verses(first, last)
     first.upto(last).map do |number|
       verse(number)
-    end.join("\n")
+    end.join("\n") + "\n"
   end
 
-  def self.verse(number)
+  def verse(number)
     case number
     when 1
       "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n"
