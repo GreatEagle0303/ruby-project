@@ -10,7 +10,7 @@ install:
   - gem install rubocop
 
 script:
-  - rubocop -fs -D
+  - rubocop
   - make test
   - bin/fetch-configlet
   - bin/configlet .
