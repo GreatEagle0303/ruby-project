@@ -1,9 +1,7 @@
 # Getting Started
 
 These exercises lean on Test-Driven Development (TDD), but they're not an
-exact match. If you want a gentle introduction to TDD using minitest in
-Ruby, see the "Intro to TDD" over at JumpstartLab:
-http://tutorials.jumpstartlab.com/topics/testing/intro-to-tdd.html
+exact match.
 
 The following steps assume that you are in the same directory as the test
 suite.
