@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'hamming'
 
@@ -13,7 +15,7 @@ class HammingTest < Minitest::Test<% test_cases.each do |test_case| %>
   # This test is for the sake of people providing feedback, so they
   # know which version of the exercise you are solving.
   def test_bookkeeping
+    skip
     assert_equal <%= version+1 %>, Hamming::VERSION
   end
 end
-
