@@ -1,23 +1,18 @@
 class Binary
-  VERSION = 1
-
   attr_reader :digits
-  def initialize(s)
-    fail ArgumentError.new("invalid binary input #{s}") unless valid?(s)
-
-    @digits = s.chars.reverse.collect(&:to_i)
+  def initialize(decimal)
+    @digits = normalize(decimal).reverse.chars.collect(&:to_i)
   end
 
   def to_decimal
-    digits.each_with_index.inject(0) do |decimal, (digit, i)|
-      decimal + digit * 2**i
+    digits.each_with_index.inject(0) do |decimal, (digit, index)|
+      decimal + digit * 2**index
     end
   end
 
   private
 
-  # rubocop:disable Style/WordArray
-  def valid?(s)
-    s.chars.all? { |char| ['0', '1'].include?(char) }
+  def normalize(string)
+    string.match(/[^01]/) ? '0' : string
   end
 end
