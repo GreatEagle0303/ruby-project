@@ -12,6 +12,7 @@ class LinkedListTest < Minitest::Test
 
   def test_constructor
     assert_equal 1, @one.datum
+    # rubocop:disable Style/EmptyLines
     assert_nil @one.next
 
     assert_equal 2, @two.datum
@@ -40,6 +41,7 @@ class LinkedListTest < Minitest::Test
     test_constructor
   end
 
+  # rubocop:disable  Metrics/AbcSize
   def test_from_a # rubocop:disable Metrics/MethodLength
     skip
     assert_nil Element.from_a([])
