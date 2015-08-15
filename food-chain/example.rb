@@ -1,5 +1,5 @@
 module FoodChain
-  VERSION = 2
+  VERSION = 1
 
   def self.song
     verses(1, 8)

@@ -4,28 +4,6 @@ require 'minitest/autorun'
 
 require_relative 'food_chain'
 
-module NoCheating
-  ERROR_MESSAGE = <<-MSG
-  This exercise intends to help you improve your ability to work
-  with data generated from your code, so DON'T just open or read
-  the song.txt file.
-  MSG
-
-  class File
-    def self.open(*)
-      fail ERROR_MESSAGE
-    end
-  end
-
-  class IO
-    def self.read(*)
-      fail ERROR_MESSAGE
-    end
-  end
-end
-
-FoodChain.prepend NoCheating
-
 class FoodChainTest < Minitest::Test
   # This test is an acceptance test.
   #
@@ -45,6 +23,6 @@ class FoodChainTest < Minitest::Test
   # giving feedback know which version of the exercise you solved.
   def test_version
     skip
-    assert_equal 2, FoodChain::VERSION
+    assert_equal 1, FoodChain::VERSION
   end
 end
