@@ -18,14 +18,8 @@ class TwelveDaysTest < Minitest::Test
     assert_equal expected, TwelveDays.song
   end
 
-  # Problems in exercism evolve over time,
-  # as we find better ways to ask questions.
-  # The version number refers to the version of the problem you solved,
-  # not your solution.
-  #
-  # Define a constant named VERSION inside of TwelveDays.
-  # If you're curious, read more about constants on RubyDoc:
-  # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
+  # This is some simple book-keeping to let people who are
+  # giving feedback know which version of the exercise you solved.
   def test_version
     assert_equal 1, TwelveDays::VERSION
   end
