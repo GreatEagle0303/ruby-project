@@ -7,24 +7,24 @@ Exercism Exercises in Ruby
 You'll need a recent (1.9.3+) version of Ruby, but that's it. Minitest ships
 with the language, so you're all set.
 
-## Working on Test Suites
+## Working on Problems
 
 Each problem should have a test suite and an example solution.
 The example solution should be named `example.rb`.
 
-**Some test suites are generated from shared inputs/outputs, see
-[Generated Test Suites](#generated-test-suites) below.** In short, if
+**Some problems are generated from shared inputs/outputs, see
+[Generated Problems](#generated-problems) below.** In short, if
 the problem directory contains an `example.tt` file, then it's a
 generated problem.
 
-### Hard-coded Test Suites
+### Hard-coded Problems
 
 Run the test with `ruby path/to/the_test.rb`.
 
 At the moment the Ruby problems `skip` all but the first test, in order to not
 overwhelm people with errors.
 
-If you want to temporarily disable the skips while working on a test suite, you can
+If you want to temporarily disable the skips while working on a problem, you can
 run the file with a shim that temporarily disables them:
 
 
@@ -32,9 +32,9 @@ run the file with a shim that temporarily disables them:
 ruby -I../lib -rdisable_skip <fiename_test.rb>
 ```
 
-### Generated Test Suites
+### Generated Problems
 
-If you find an `example.tt` file in a problem directory, then the test suite is
+If you find an `example.tt` file in a problem directory, then the problem is
 generated from shared data. In this case changing the test file itself will
 not be enough.
 
@@ -71,7 +71,7 @@ Changes to the test suite (style, boilerplate, etc) will probably have to be mad
 
 ## Pull Requests
 
-We welcome pull requests that provide fixes to existing test suites (missing
+We welcome pull requests that provide fixes to existing problems (missing
 tests, interesting edge cases, improved APIs), as well as new problems.
 
 If you're unsure, then go ahead and open a GitHub issue, and we'll discuss the
@@ -106,6 +106,8 @@ done by doing `# rubocop:disable CopName`, where the `CopName` is replaced
 appropriately.
 
 For more complete information, see [Rubocop](http://batsov.com/rubocop/).
+
+It is the responsibility of the Ruby test generator to interpret the $PROBLEM.json data in a stylistically correct manner, eg downcase the test method names.
 
 ## READMEs
 

@@ -1,6 +1,4 @@
 class School
-  VERSION = 1
-
   def initialize
     @db = Hash.new { |db, grade| db[grade] = [] }
   end
@@ -13,7 +11,7 @@ class School
     @db[level].sort
   end
 
-  def to_h
+  def to_hash
     sorted = @db.map { |grade, students| [grade, students.sort] }.sort
     Hash[sorted]
   end
