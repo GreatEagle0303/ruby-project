@@ -1,6 +1,4 @@
 class Raindrops
-  VERSION = 1
-
   def self.convert(i)
     new(i).convert
   end
