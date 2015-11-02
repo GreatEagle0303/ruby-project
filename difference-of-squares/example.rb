@@ -1,6 +1,4 @@
 class Squares
-  VERSION = 1
-
   attr_reader :max
   def initialize(max)
     @max = max
