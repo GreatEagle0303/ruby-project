@@ -1,4 +1,8 @@
 class SumOfMultiples
+  def self.to(limit)
+    new(5, 3).to(limit)
+  end
+
   attr_reader :multiples
   def initialize(*multiples)
     @multiples = multiples
