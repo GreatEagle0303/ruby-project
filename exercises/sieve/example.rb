@@ -15,7 +15,7 @@ class Sieve
     primes = []
     begin
       target = numbers.shift
-      primes << target if target
+      primes << target
       numbers.reject! { |i| i % target == 0 }
     end until numbers.empty?
     primes
