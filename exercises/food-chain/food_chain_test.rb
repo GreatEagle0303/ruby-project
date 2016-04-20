@@ -31,8 +31,7 @@ class FoodChainTest < Minitest::Test
   # Tests that an error is effectively raised when IO.read or
   # File.open are used within FoodChain.
   def test_read_guard
-    song_file = File.expand_path('../song.txt', __FILE__)
-    ["IO.read '#{song_file}'", "File.open '#{song_file}'"].each do |trigger|
+    ["IO.read 'song.txt'", "File.open 'song.txt'"].each do |trigger|
       assert_raises(NoCheating) { FoodChain.send :class_eval, trigger }
     end
   end
@@ -60,22 +59,10 @@ module RestrictedClasses
     def self.read(*)
       fail NoCheating
     end
-
-    def open(*)
-      fail NoCheating
-    end
-
-    def read(*)
-      fail NoCheating
-    end
   end
 
   class IO
     def self.read(*)
-      fail NoCheating
-    end
-
-    def read(*)
       fail NoCheating
     end
   end
