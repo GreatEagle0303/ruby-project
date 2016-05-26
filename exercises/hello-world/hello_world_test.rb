@@ -13,7 +13,7 @@ rescue LoadError => e
 end
 
 # Test data version:
-# deb225e Implement canonical dataset for scrabble-score problem (#255)
+# 7668b09 Added hello world test definition
 
 class HelloWorldTest < Minitest::Test
   def test_no_name
