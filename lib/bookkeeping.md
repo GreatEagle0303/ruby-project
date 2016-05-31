@@ -4,9 +4,8 @@
   # not your solution.
   #
   # Define a constant named VERSION inside of the top level BookKeeping
-  # module, which may be placed near the end of your file.
-  #
-  # In your file, it will look like this:
+  # module.
+  #  In your file, it will look like this:
   #
   # module BookKeeping
   #   VERSION = 1 # Where the version number matches the one in the test.
