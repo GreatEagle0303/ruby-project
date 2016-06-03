@@ -1,8 +1,6 @@
-module BookKeeping
-  VERSION = 2
-end
-
 class RunLengthEncoding
+  VERSION = 1
+
   def self.encode(str)
     str.chars.chunk { |char| char }.each_with_object('') do |chunk, out|
       out << encoded(chunk)

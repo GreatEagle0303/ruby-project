@@ -1,8 +1,6 @@
-module BookKeeping
-  VERSION = 2
-end
-
 class TwoBucket
+  VERSION = 1
+
   attr_reader :goal_bucket, :other_bucket
 
   def initialize(first_size, second_size, goal, start_bucket)
@@ -49,7 +47,7 @@ class TwoBucket
   end
 
   def start_from_first
-    if first_bucket_empty?
+    if first_bucket_empty? 
       fill_first_bucket
     elsif second_bucket_full?
       empty_second_bucket

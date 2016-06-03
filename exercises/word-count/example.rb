@@ -1,8 +1,6 @@
-module BookKeeping
-  VERSION = 1
-end
-
 class Phrase
+  VERSION = 1
+
   def initialize(source)
     @source = source
   end

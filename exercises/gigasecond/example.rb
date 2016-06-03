@@ -1,8 +1,5 @@
-module BookKeeping
-  VERSION = 3
-end
-
 class Gigasecond
+  Gigasecond::VERSION = 1
   SECONDS = 10**9
 
   def self.from(time)

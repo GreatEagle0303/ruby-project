@@ -1,8 +1,6 @@
-module BookKeeping
-  VERSION = 1
-end
-
 class Poker
+  VERSION = 1
+
   def initialize(hands)
     @hands = hands
   end

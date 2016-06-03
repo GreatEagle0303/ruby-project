@@ -3,12 +3,20 @@ class RnaTranscriptionCase < OpenStruct
     'test_%s' % description.gsub(/[ -]/, '_')
   end
 
-  def work_load
-    "Complement.of_dna('#{dna}')"
+  def do
+    if defined?(rna)
+      "Complement.of_rna('#{rna}')"
+    else
+      "Complement.of_dna('#{dna}')"
+    end
   end
 
-  def skipped
-    index.zero? ? '# skip' : 'skip'
+  def raises_error?
+    expected == null
+  end
+
+  def skipped?
+    index > 0
   end
 end
 

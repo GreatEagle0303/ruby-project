@@ -1,9 +1,6 @@
-module BookKeeping
-  VERSION = 2
-end
-
 # Clock without dates exercise
 class Clock
+  VERSION = 1
   def self.at(*args)
     Clock.new(*args)
   end

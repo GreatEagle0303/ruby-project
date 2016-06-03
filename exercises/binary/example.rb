@@ -1,10 +1,7 @@
-module BookKeeping
-  VERSION = 2
-end
-
 class Binary
-  attr_reader :digits
+  VERSION = 2
 
+  attr_reader :digits
   def initialize(s)
     fail ArgumentError.new("invalid binary input #{s}") unless valid?(s)
 

@@ -1,8 +1,6 @@
-module BookKeeping
-  VERSION = 2
-end
-
 module TwelveDays
+  VERSION = 1
+
   def self.song
     verses(1, 12)
   end

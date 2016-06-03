@@ -1,8 +1,6 @@
-module BookKeeping
-  VERSION = 2
-end
-
 module FoodChain
+  VERSION = 2
+
   def self.song
     verses(1, 8)
   end
