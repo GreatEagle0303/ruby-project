@@ -3,6 +3,7 @@
   "language": "Ruby",
   "repository": "https://github.com/exercism/xruby",
   "active": true,
+  "gitter": "xruby",
   "problems": [
     "hello-world",
     "hamming",
@@ -41,6 +42,7 @@
     "acronym",
     "scrabble-score",
     "nucleotide-count",
+    "flatten-array",
     "hexadecimal",
     "say",
     "meetup",

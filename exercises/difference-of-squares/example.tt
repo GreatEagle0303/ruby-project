@@ -16,10 +16,9 @@ class DifferenceOfSquaresTest < Minitest::Test<% test_cases.each do |test_case| 
     squares = Squares.new(10)
     assert_equal squares.difference, squares.difference
   end
-
-  # Don't forget to define a constant VERSION inside of Squares.
+<%= IO.read(XRUBY_LIB + '/bookkeeping.md') %>
   def test_bookkeeping
     skip
-    assert_equal <%= version+1 %>, Squares::VERSION
+    assert_equal <%= version.next %>, BookKeeping::VERSION
   end
 end
