@@ -1,6 +1,6 @@
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-require_relative 'perfect_numbers'
+require_relative 'example'
 
 class PerfectNumberTest < Minitest::Test
   def test_initialize_perfect_number
