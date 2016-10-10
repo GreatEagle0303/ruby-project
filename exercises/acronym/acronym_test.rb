@@ -5,6 +5,7 @@ require_relative 'acronym'
 
 # Test data version:
 # 5b5e807
+# rubocop:disable Metrics/LineLength
 class AcronymTest < Minitest::Test
   def test_basic
     assert_equal 'PNG', Acronym.abbreviate('Portable Network Graphics')

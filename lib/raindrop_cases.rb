@@ -12,7 +12,7 @@ class RaindropsCase < OpenStruct
   end
 end
 
-RaindropsCases = proc do |data|
+RaindropCases = proc do |data|
   JSON.parse(data)['cases'].map.with_index do |row, i|
     RaindropsCase.new(row.merge('index' => i))
   end
