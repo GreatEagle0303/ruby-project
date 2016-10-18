@@ -1,16 +1,14 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-require_relative 'sieve'
+require_relative 'anagram'
 
 # Test data version:
 # <%= sha1 %>
-
-class SieveTest < Minitest::Test<% test_cases.each do |test_case| %>
-  def <%= test_case.name %>
+class AnagramTest < Minitest::Test<% test_cases.each do |test_case| %>
+  def <%= test_case.test_name %>
     <%= test_case.skipped %>
-    expected = <%= test_case.expected_string %>
-    assert_equal expected, Sieve.new(<%= test_case.limit %>).primes
+    <%= test_case.work_load %>
   end
 <% end %>
 <%= IO.read(XRUBY_LIB + '/bookkeeping.md') %>
