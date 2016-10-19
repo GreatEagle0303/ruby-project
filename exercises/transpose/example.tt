@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-require_relative 'anagram'
+require_relative 'transpose'
 
 # Test data version:
 # <%= sha1 %>
-class AnagramTest < Minitest::Test<% test_cases.each do |test_case| %>
+class TransposeTest < Minitest::Test<% test_cases.each do |test_case| %>
   def <%= test_case.test_name %>
     <%= test_case.skipped %>
-    <%= test_case.work_load %>
+    input = <%= test_case.input_text %>
+    actual = <%= test_case.workload %>
+    expected = <%= test_case.expect %>
+    assert_equal expected.strip, actual
   end
 <% end %>
 <%= IO.read(XRUBY_LIB + '/bookkeeping.md') %>
