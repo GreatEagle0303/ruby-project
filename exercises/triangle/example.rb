@@ -1,15 +1,29 @@
-module BookKeeping
-  VERSION = 1
+class TriangleError < RuntimeError
 end
 
 class Triangle
-  attr_reader :sides
+  attr_reader :a, :b, :c
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
+  end
 
-  def initialize(sides)
-    @sides = sides
-    if illegal?
-      @sides = []
+  def kind
+    fail TriangleError if illegal?
+    if equilateral?
+      :equilateral
+    elsif isosceles?
+      :isosceles
+    else
+      :scalene
     end
+  end
+
+  private
+
+  def sides
+    @sides ||= [a, b, c]
   end
 
   def equilateral?
@@ -17,21 +31,14 @@ class Triangle
   end
 
   def isosceles?
-    sides.uniq.size.between?(1, 2)
+    sides.uniq.size == 2
   end
-
-  def scalene?
-    sides.uniq.size == 3
-  end
-
-  private
 
   def illegal?
     impossible_length_side? || violates_inequality?
   end
 
   def violates_inequality?
-    a, b, c = sides
     a + b <= c || a + c <= b || b + c <= a
   end
 
