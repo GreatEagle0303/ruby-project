@@ -1,18 +1,14 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-require_relative 'tournament'
+require_relative 'triangle'
 
 # Test data version:
 # <%= sha1 %>
-class TournamentTest < Minitest::Test
-<% test_cases.each do |test_case| %>
+class TriangleTest < Minitest::Test<% test_cases.each do |test_case| %>
   def <%= test_case.test_name %>
     <%= test_case.skipped %>
-    input = <%= test_case.input_text %>
-    actual = <%= test_case.workload %>
-    expected = <%= test_case.expect %>
-    assert_equal expected, actual
+    <%= test_case.workload %>
   end
 <% end %>
 <%= IO.read(XRUBY_LIB + '/bookkeeping.md') %>
@@ -21,3 +17,4 @@ class TournamentTest < Minitest::Test
     assert_equal <%= version.next %>, BookKeeping::VERSION
   end
 end
+

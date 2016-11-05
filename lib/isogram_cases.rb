@@ -13,7 +13,7 @@ class IsogramCase < OpenStruct
   end
 
   def skip
-    index.zero? ? '# skip' : 'skip'
+    'skip' unless index.zero?
   end
 end
 
