@@ -1,29 +1,14 @@
 class PangramCase < OpenStruct
   def name
-    'test_%s' % description.downcase.tr_s(" -'", '_').sub(/_$/,'')
+    'test_%s' % description.delete("'").gsub(/[ -]/, '_')
   end
 
-  def workload
-    [
-    "phrase = '#{input}'\n",
-    "    #{assertion} Pangram.pangram?(phrase), \"#{message}\""
-    ].join
-  end
-
-  def message
-    "\#{phrase.inspect} #{is_or_isnt} a pangram"
-  end
-
-  def is_or_isnt
-    expected ? 'IS' : 'is NOT'
-  end
-
-  def assertion
-    expected ? 'assert' : 'refute'
+  def do
+    'Pangram.is_pangram?(str)'
   end
 
   def skipped?
-    index.zero? ? '# skip' : 'skip'
+    index > 0
   end
 end
 
