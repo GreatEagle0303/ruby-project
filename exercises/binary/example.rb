@@ -1,25 +1,25 @@
 module BookKeeping
-  VERSION = 3
+  VERSION = 2
 end
 
 class Binary
-  def self.to_decimal binary
-    fail ArgumentError.new("invalid binary input #{binary}") if invalid?(binary)
+  attr_reader :digits
 
-    digits(binary).reduce(0, &method(:convert))
+  def initialize(s)
+    fail ArgumentError.new("invalid binary input #{s}") unless valid?(s)
+
+    @digits = s.chars.reverse.collect(&:to_i)
+  end
+
+  def to_decimal
+    digits.each_with_index.inject(0) do |decimal, (digit, i)|
+      decimal + digit * 2**i
+    end
   end
 
   private
 
-  def self.invalid?(binary)
-    binary =~ /[^01]/
-  end
-
-  def self.digits(binary)
-    binary.chars.map(&:to_i)
-  end
-
-  def self.convert(decimal, digit)
-    decimal * 2 + digit
+  def valid?(s)
+    s.chars.all? { |char| ['0', '1'].include?(char) }
   end
 end

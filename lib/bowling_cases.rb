@@ -20,7 +20,7 @@ class BowlingCase < OpenStruct
   def assert
     if assert_error?
       [
-        'assert_raises Game::BowlingError do',
+        'assert_raises StandardError do',
         "  #{roll}",
         '  @game.score',
         'end'

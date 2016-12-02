@@ -4,7 +4,8 @@ class BinaryCase < OpenStruct
   end
 
   def assertion
-    raises_error? ? error_assertion : equality_assertion
+    return error_assertion if raises_error?
+    equality_assertion
   end
 
   def skipped
@@ -22,7 +23,7 @@ class BinaryCase < OpenStruct
   end
 
   def work_load
-    "Binary.to_decimal('#{binary}')"
+    "Binary.new('#{binary}')#{'.to_decimal' unless raises_error?}"
   end
 
   def raises_error?
