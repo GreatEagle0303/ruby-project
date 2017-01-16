@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class TransposeCase < OpenStruct
   def test_name
     "test_#{description.tr(' ', '_')}"

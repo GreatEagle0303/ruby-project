@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class WordyCase < OpenStruct
   def test_name
     'test_%s' % description.downcase.tr(' ', '_')

@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class BinaryCase < OpenStruct
   def name
     'test_%s' % description.gsub(/[ -]/, '_')

@@ -1,9 +1,7 @@
-require 'exercise_cases'
-
 class IsogramCase < OpenStruct
 
   def name
-    format('test_%s', description.downcase.gsub(/[ -]/, '_'))
+    format('test_%s', description.downcase.gsub(/[ -]/,'_'))
   end
 
   def assertion

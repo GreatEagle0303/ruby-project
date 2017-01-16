@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class QueenCase < OpenStruct
   def test_name
     "test_#{description.gsub(/[ ]/, '_')}"

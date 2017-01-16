@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class LeapCase < OpenStruct
   def name
     'test_%s' % description.downcase.gsub(/[ -]/, '_')

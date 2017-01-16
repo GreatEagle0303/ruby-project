@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class LargestSeriesProductCase < OpenStruct
   def name
     'test_%s' % description.tr('()', '').tr(' -', '_').downcase

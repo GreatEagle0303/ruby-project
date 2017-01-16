@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class TournamentCase < OpenStruct
   def test_name
     "test_#{description.tr(' ', '_').tr('()', '')}"

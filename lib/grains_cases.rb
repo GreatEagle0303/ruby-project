@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class GrainsCase < OpenStruct
   def test_name
     'test_%s' % description.downcase.tr_s(' ', '_')
@@ -16,7 +14,7 @@ class GrainsCase < OpenStruct
   private
 
   def underscore_format(number)
-    number.to_s.reverse.gsub(/...(?=.)/, '\&_').reverse
+    number.to_s.reverse.gsub(/...(?=.)/,'\&_').reverse
   end
 end
 

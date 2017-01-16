@@ -1,8 +1,6 @@
-require 'exercise_cases'
-
 class PangramCase < OpenStruct
   def name
-    'test_%s' % description.downcase.tr_s(" -'", '_').sub(/_$/, '')
+    'test_%s' % description.downcase.tr_s(" -'", '_').sub(/_$/,'')
   end
 
   def workload

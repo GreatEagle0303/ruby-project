@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class RomanNumeralsCase < OpenStruct
   def name
     'test_%s' % number.to_s
