@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class AlphameticsCase < OpenStruct
   def test_name
     "test_#{description.tr(' ', '_')}"

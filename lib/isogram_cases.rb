@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class IsogramCase < OpenStruct
 
   def name

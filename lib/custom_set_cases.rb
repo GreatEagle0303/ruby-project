@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class CustomSetCase < OpenStruct
   def name
     'test_%s' % description.gsub(/ |-/, '_')

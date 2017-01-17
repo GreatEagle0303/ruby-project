@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class ClockCase < OpenStruct
   def name
     'test_%s' % description

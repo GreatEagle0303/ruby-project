@@ -1,5 +1,3 @@
-require 'exercise_cases'
-
 class TwoBucketCase < OpenStruct
   def test_name
     "test_bucket_one_#{bucket_one}_bucket_two_"\
