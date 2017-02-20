@@ -1,5 +1,3 @@
-require 'json'
-
 module Generator
   # Contains methods accessible to the ERB template
   class TemplateValues
