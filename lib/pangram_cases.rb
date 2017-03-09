@@ -1,17 +1,20 @@
+require 'exercise_cases'
+
 class PangramCase < OpenStruct
   def name
-    'test_%s' % description.downcase.tr_s(" -'", '_').sub(/_$/,'')
+    'test_%s' % description.downcase.tr_s(" -'", '_').sub(/_$/, '')
   end
 
   def workload
     [
-    "phrase = '#{input}'\n",
-    "    #{assertion} Pangram.pangram?(phrase), \"#{message}\""
-    ].join
+    "phrase = '#{input}'",
+    "    result = Pangram.pangram?(phrase)",
+    "    #{assertion} result, \"#{message}\""
+    ].join("\n")
   end
 
   def message
-    "\#{phrase.inspect} #{is_or_isnt} a pangram"
+    "Expected #{expected}, got: \#{result.inspect}. \#{phrase.inspect} #{is_or_isnt} a pangram"
   end
 
   def is_or_isnt
