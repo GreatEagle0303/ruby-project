@@ -1,30 +1,35 @@
 class Luhn
-  DOUBLE = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
-  DOUBLE.freeze
-
-  def self.valid?(string)
-    Luhn.new(string).valid?
+  def self.create(number)
+    test_number = number * 10
+    luhn = Luhn.new(test_number)
+    return test_number if luhn.valid?
+    test_number + 10 - (luhn.checksum % 10)
   end
 
-  def initialize(string)
-    @string = string.tr(' ', '')
+  attr_reader :number
+  def initialize(number)
+    @number = number
+  end
+
+  def addends
+    numbers = []
+    number.to_s.reverse.split('').map(&:to_i).each_with_index do |n, i|
+      if i % 2 == 0
+        numbers << n
+      else
+        value = n * 2
+        value -= 9 if value > 9
+        numbers << value
+      end
+    end
+    numbers.reverse
   end
 
   def checksum
-    @string.
-      reverse.each_char.with_index.
-      reduce(0) {|sum, (c, i)| sum + (i.odd? ? DOUBLE[c.to_i] : c.to_i) }
+    addends.inject(0, :+)
   end
 
   def valid?
-    clean? && (checksum % 10).zero?
+    checksum % 10 == 0
   end
-
-  def clean?
-    @string.match(/^\d{2,}$/)
-  end
-end
-
-module BookKeeping
-  VERSION = 1
 end
