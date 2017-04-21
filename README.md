@@ -142,8 +142,7 @@ class ProblemNameCase < OpenStruct
   end
 
   def workload
-    # Example workload:
-    "assert #{expected.inspect}, Problem.call(#{input.inspect})"
+    # implement main logic of test here
   end
 
   def skipped
@@ -158,7 +157,7 @@ the generator script will infer the name of the class from the argument that is 
 This class must implement the following methods:
 
 - `test_name` - Returns the name of the test (i.e `test_one_equals_one`)
-- `workload` - Returns the main syntax for the test. This includes the assertion and any setup required for the test.  This will vary depending on the test generator and its underlying implementation
+- `workload` - Returns the main syntax for the test.  This will vary depending on the test generator and its underlying implementation
 - `skipped` - Returns skip syntax (i.e. `skip` or `# skip`)
 
 Beyond that, you can implement any helper methods that you need.
@@ -184,12 +183,14 @@ loop through each of the cases in an inner loop:
 
 ```
 ProblemNameCases = proc do |data|
+  i = 0
   json = JSON.parse(data)
   cases = []
   %w(section1 section2 etc).each do |section|
     json[section]['cases'].each do |row|
-      row = row.merge(row.merge('index' => cases.size, 'section' => section))
+      row = row.merge(row.merge('index' => i, 'section' => section))
       cases << ProblemNameCase.new(row)
+      i += 1
     end
   end
   cases
@@ -207,13 +208,11 @@ require 'minitest/autorun'
 require_relative '$PROBLEM'
 
 # Common test data version: <%= abbreviated_commit_hash %>
-class ProblemNameTest < Minitest::Test
-<% test_cases.each do |test_case| %>
+class ProblemNameTest < Minitest::Test<% test_cases.each do |test_case| %>
   def <%= test_case.name %>
     <%= test_case.skipped %>
-    <%= test_case.workload %>
+    assert_equal <%= test_case.expected %>, <%= test_case.work_load %>
   end
-
 <% end %>
 <%= IO.read(XRUBY_LIB + '/bookkeeping.md') %>
   def test_bookkeeping
