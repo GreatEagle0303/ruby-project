@@ -1,24 +1,14 @@
 #!/usr/bin/env ruby
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
-require_relative 'bowling'
+require_relative 'luhn'
 
 # Common test data version: <%= abbreviated_commit_hash %>
-class BowlingTest < Minitest::Test
-  def setup
-    @game = Game.new
-  end
-
-  def roll(rolls)
-    rolls.each { |pins| @game.roll(pins) }
-  end
-
-<% test_cases.each do |test_case| %>
-  def <%= test_case.test_name %>
+class LuhnTest < Minitest::Test<% test_cases.each do |test_case| %>
+  def <%= test_case.name %>
     <%= test_case.skipped %>
-    <%= test_case.work_load %>
+    <%= test_case.workload %>
   end
-
 <% end %>
 <%= IO.read(XRUBY_LIB + '/bookkeeping.md') %>
   def test_bookkeeping

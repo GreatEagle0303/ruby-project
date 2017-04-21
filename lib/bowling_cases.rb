@@ -9,7 +9,7 @@ class BowlingCase < OpenStruct
     index.zero? ? '# skip' : 'skip'
   end
 
-  def workload
+  def work_load
     indent_lines(assert)
   end
 
