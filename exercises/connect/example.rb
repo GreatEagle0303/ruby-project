@@ -1,5 +1,5 @@
 module BookKeeping
-  VERSION = 2
+  VERSION = 1
 end
 Position = Struct.new(:x, :y)
 class Board

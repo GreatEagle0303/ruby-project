@@ -3,7 +3,9 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'sieve'
 
-# Common test data version: f2b2693
+# Test data version:
+# 43d62d1
+
 class SieveTest < Minitest::Test
   def test_no_primes_under_two
     # skip

@@ -1,11 +1,15 @@
+require 'exercise_cases'
+
 require 'time'
 
-class GigasecondCase < ExerciseCase
-  def workload
-    %Q(assert_equal #{want}, Gigasecond.from(#{got}))
+class GigasecondCase < OpenStruct
+  def name
+    'test_%s' % description.gsub(/[ :-]/, '_')
   end
 
-  private
+  def description
+    send(:'#') || input
+  end
 
   def got
     "Time.utc(#{start_values.join(', ')})"
@@ -23,5 +27,15 @@ class GigasecondCase < ExerciseCase
   def stop_values
     ts = Time.parse(expected)
     [ts.year, ts.month, ts.day, ts.hour, ts.min, ts.sec]
+  end
+
+  def skipped?
+    index > 0
+  end
+end
+
+GigasecondCases = proc do |data|
+  JSON.parse(data)['add']['cases'].map.with_index do |row, i|
+    GigasecondCase.new(row.merge('index' => i))
   end
 end

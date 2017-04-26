@@ -3,10 +3,11 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'difference_of_squares'
 
-# Common test data version: 1eb9535
+# Test data version:
+# deb225e Implement canonical dataset for scrabble-score problem (#255)
+
 class DifferenceOfSquaresTest < Minitest::Test
   def test_square_of_sum_5
-    # skip
     assert_equal 225, Squares.new(5).square_of_sum
   end
 
@@ -60,16 +61,14 @@ class DifferenceOfSquaresTest < Minitest::Test
     squares = Squares.new(10)
     assert_equal squares.difference, squares.difference
   end
-
   # Problems in exercism evolve over time, as we find better ways to ask
   # questions.
   # The version number refers to the version of the problem you solved,
   # not your solution.
   #
   # Define a constant named VERSION inside of the top level BookKeeping
-  # module, which may be placed near the end of your file.
-  #
-  # In your file, it will look like this:
+  # module.
+  #  In your file, it will look like this:
   #
   # module BookKeeping
   #   VERSION = 1 # Where the version number matches the one in the test.

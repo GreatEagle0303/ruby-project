@@ -3,7 +3,7 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'alphametics'
 
-# Common test data version: b9bada8
+# Test data version: 9dab356
 class AlphameticsTest < Minitest::Test
 
   def test_puzzle_with_three_letters
@@ -89,7 +89,6 @@ class AlphameticsTest < Minitest::Test
   #
   # If you are curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
-
   def test_bookkeeping
     skip
     assert_equal 4, BookKeeping::VERSION

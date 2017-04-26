@@ -1,7 +1,7 @@
 require 'exercise_cases'
 
-class DominoesCase < ExerciseCase
-  def name
+class DominoesCase < OpenStruct
+  def test_name
     'test_%s' % description.gsub("can't", 'can not').gsub(/[= -]+/, '_')
   end
 
@@ -13,4 +13,13 @@ input_dominoes = #{input}
     WL
   end
 
+  def skipped
+    index.zero? ? '# skip' : 'skip'
+  end
+end
+
+DominoesCases = proc do |data|
+  JSON.parse(data)['cases'].map.with_index do |row, i|
+    DominoesCase.new(row.merge('index' => i))
+  end
 end

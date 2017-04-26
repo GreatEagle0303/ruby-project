@@ -3,10 +3,10 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'word_count'
 
-# Common test data version: cd26d49
+# Test data version:
+# 5b5e807
 class PhraseTest < Minitest::Test
   def test_count_one_word
-    # skip
     phrase = Phrase.new("word")
     counts = {"word"=>1}
     assert_equal counts, phrase.word_count
@@ -97,3 +97,4 @@ class PhraseTest < Minitest::Test
     assert_equal 1, BookKeeping::VERSION
   end
 end
+

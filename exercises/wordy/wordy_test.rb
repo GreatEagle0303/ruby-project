@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative 'wordy'
 
-# Common test data version: 5b8ad58
+# Test data version: aa12f2e
 class WordyTest < Minitest::Test
   def test_addition
     # skip
@@ -121,7 +121,6 @@ class WordyTest < Minitest::Test
   #
   # If you are curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
-
   def test_bookkeeping
     skip
     assert_equal 1, BookKeeping::VERSION

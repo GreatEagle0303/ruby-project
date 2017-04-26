@@ -1,9 +1,16 @@
 require 'exercise_cases'
 
-class AllYourBaseCase < ExerciseCase
+class AllYourBaseCase < OpenStruct
+  def test_name
+    'test_%s' % description.downcase.tr(' -', '_')
+  end
 
   def workload
     indent(4, (assignments + assertion).join("\n")) + "\n"
+  end
+
+  def skipped
+    index.zero? ? '# skip' : 'skip'
   end
 
   private
@@ -23,10 +30,10 @@ class AllYourBaseCase < ExerciseCase
   end
 
   def assertion
-    return error_assertion unless expected_value
+    return error_assertion unless expected
 
     [
-      "expected = #{expected_value}",
+      "expected = #{expected}",
       "",
       "converted = BaseConverter.convert(input_base, digits, output_base)",
       "",
@@ -48,32 +55,57 @@ class AllYourBaseCase < ExerciseCase
     %q("Input base: #{input_base}, output base #{output_base}. " \\) \
       "\n" + %q("Expected #{expected} but got #{converted}.")
   end
+end
 
-  def expected_value
-    return expected if expected
+class AllYourBaseCase::PreProcessor
+  class << self
+    attr_reader :row
 
-    case
-    when invalid_input_digits? || invalid_bases? then nil
-    when input_digits.empty? then []
-    when input_of_zero? then [0]
-    else
-      handle_special_cases
+    def call(row)
+      @row = row
+
+      row.merge('expected' => expected_value)
+    end
+
+    private :row
+    private
+
+    def expected_value
+      return row['expected'] if row['expected']
+
+      if invalid_input_digits? || invalid_bases?
+        nil
+      elsif row['input_digits'].empty?
+        []
+      elsif input_of_zero?
+        [0]
+      else
+        handle_special_cases
+      end
+    end
+
+    def invalid_input_digits?
+      row['input_digits'].any? { |x| x < 0 || x >= row['input_base'] }
+    end
+
+    def invalid_bases?
+      row['input_base'] <= 1 || row['output_base'] <= 1
+    end
+
+    def input_of_zero?
+      row['input_digits'].all? { |x| x == 0 }
+    end
+
+    def handle_special_cases
+      [4, 2] if row['input_digits'] == [0, 6, 0]
     end
   end
+end
 
-  def invalid_input_digits?
-    input_digits.any? { |x| x < 0 || x >= input_base }
-  end
-
-  def invalid_bases?
-    input_base <= 1 || output_base <= 1
-  end
-
-  def input_of_zero?
-    input_digits.all? { |x| x == 0 }
-  end
-
-  def handle_special_cases
-    [4, 2] if input_digits == [0, 6, 0]
+AllYourBaseCases = proc do |data|
+  JSON.parse(data)['cases'].map.with_index do |row, i|
+    AllYourBaseCase.new(
+      AllYourBaseCase::PreProcessor.call(row).merge(index: i),
+    )
   end
 end

@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative 'all_your_base'
 
-# Common test data version: 39de23b
+# Test data version: aa12f2e
 class AllYourBaseTest < Minitest::Test
   def test_single_bit_one_to_decimal
     # skip

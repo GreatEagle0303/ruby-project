@@ -1,8 +1,24 @@
 require 'exercise_cases'
 
-class AlphameticsCase < ExerciseCase
+class AlphameticsCase < OpenStruct
+  def test_name
+    "test_#{description.tr(' ', '_')}"
+  end
+
+  def skipped
+    index.zero? ? '# skip' : 'skip'
+  end
+
+  def input
+    "'#{puzzle}'"
+  end
+
+  def expect
+    expected.nil? ? {} : expected_values
+  end
+
   def workload
-    body =
+    body = 
       "input = %s\n" % input,
       "expected = %s\n" % expect,
       "assert_equal expected, Alphametics.solve(input)"
@@ -11,7 +27,7 @@ class AlphameticsCase < ExerciseCase
 
   def runtime_comment
     if slow?
-      comments =
+      comments = 
         '',
         "# The obvious algorithm can take a long time to solve this puzzle,\n",
         "# but an optimised solution can solve it fairly quickly.\n",
@@ -22,16 +38,8 @@ class AlphameticsCase < ExerciseCase
 
   private
 
-  def input
-    "'#{puzzle}'"
-  end
-
-  def expect
-    expected.nil? ? {} : expected_values
-  end
-
   def slow?
-    (expected||{}).size > 7
+    (expected||{}).size > 7 
   end
 
   def expected_values
@@ -55,4 +63,11 @@ class AlphameticsCase < ExerciseCase
     lines.join(' ' * spaces)
   end
 
+end
+
+AlphameticsCases = proc do |data|
+  JSON.parse(data)['solve']['cases'].map.with_index do |row, i|
+    row = row.merge('index' => i)
+    AlphameticsCase.new(row)
+  end
 end

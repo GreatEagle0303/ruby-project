@@ -3,7 +3,8 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'bracket_push'
 
-# Common test data version: 855c591
+# Test data version:
+# 306975e
 class BracketsTest < Minitest::Test
   def test_paired_square_brackets
     # skip
@@ -23,11 +24,6 @@ class BracketsTest < Minitest::Test
   def test_wrong_ordered_brackets
     skip
     refute Brackets.paired?('}{')
-  end
-
-  def test_wrong_closing_bracket
-    skip
-    refute Brackets.paired?('{]')
   end
 
   def test_paired_with_whitespace
@@ -96,6 +92,6 @@ class BracketsTest < Minitest::Test
 
   def test_bookkeeping
     skip
-    assert_equal 4, BookKeeping::VERSION
+    assert_equal 3, BookKeeping::VERSION
   end
 end

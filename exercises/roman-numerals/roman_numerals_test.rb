@@ -3,10 +3,11 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'roman_numerals'
 
-# Common test data version: 070e8d5
+# Test data version:
+# deb225e Implement canonical dataset for scrabble-score problem (#255)
+
 class RomanNumeralsTest < Minitest::Test
   def test_1
-    # skip
     assert_equal 'I', 1.to_roman
   end
 
@@ -101,9 +102,8 @@ class RomanNumeralsTest < Minitest::Test
   # not your solution.
   #
   # Define a constant named VERSION inside of the top level BookKeeping
-  # module, which may be placed near the end of your file.
-  #
-  # In your file, it will look like this:
+  # module.
+  #  In your file, it will look like this:
   #
   # module BookKeeping
   #   VERSION = 1 # Where the version number matches the one in the test.

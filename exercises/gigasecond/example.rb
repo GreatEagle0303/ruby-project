@@ -1,5 +1,5 @@
 module BookKeeping
-  VERSION = 6
+  VERSION = 5
 end
 
 class Gigasecond

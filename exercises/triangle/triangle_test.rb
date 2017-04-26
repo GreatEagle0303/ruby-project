@@ -3,7 +3,8 @@ gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'triangle'
 
-# Common test data version: fa90b35
+# Test data version:
+# b806246
 class TriangleTest < Minitest::Test
   def test_triangle_is_equilateral_if_all_sides_are_equal
     # skip
@@ -129,3 +130,4 @@ class TriangleTest < Minitest::Test
     assert_equal 1, BookKeeping::VERSION
   end
 end
+
