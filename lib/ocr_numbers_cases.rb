@@ -1,3 +1,5 @@
+require 'generator/exercise_cases'
+
 class OcrNumbersCase < ExerciseCase
   def workload
     if raises_error?
@@ -12,9 +14,4 @@ class OcrNumbersCase < ExerciseCase
   def test_case
     %Q(OcrNumbers.convert(#{(input.join("\n")).inspect}))
   end
-end
-
-OcrNumbersCases = proc do |data|
-  JSON.parse(data)['cases'].flat_map {|section| section['cases'] }.
-    map.with_index {|test, index| OcrNumbersCase.new(test.merge('index' => index)) }
 end
