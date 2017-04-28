@@ -69,7 +69,6 @@ class LuhnTest < Minitest::Test
     skip
     assert Luhn.valid?("091")
   end
-
   # Problems in exercism evolve over time, as we find better ways to ask
   # questions.
   # The version number refers to the version of the problem you solved,
@@ -86,7 +85,6 @@ class LuhnTest < Minitest::Test
   #
   # If you are curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
-
   def test_bookkeeping
     skip
     assert_equal 1, BookKeeping::VERSION

@@ -2,15 +2,13 @@ require 'generator/exercise_cases'
 
 class RunLengthEncodingCase < ExerciseCase
 
-  def workload
-    indent_lines([
-      "input = '#{input}'",
-      "output = '#{expected}'",
-      assertion
-    ], 4)
+  def assign_input
+    "input = '#{input}'"
   end
 
-  private
+  def assign_output
+    "output = '#{expected}'"
+  end
 
   def assertion
     if property == 'consistency'
