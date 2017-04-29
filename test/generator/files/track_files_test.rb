@@ -34,8 +34,7 @@ module Generator
 
       def test_tests_template
         subject = TestTrackFiles.new
-        expected_filename = FixturePaths.track + '/exercises/alpha/.meta/generator/test_template.erb'
-        assert_equal expected_filename, subject.tests_template.filename
+        assert_instance_of TestsTemplateFile, subject.tests_template
       end
 
       class TestTrackFilesUseDefault
@@ -48,24 +47,8 @@ module Generator
       end
 
       def test_default_tests_template
-        subject = TestTrackFilesUseDefault.new
-        expected_filename = FixturePaths.track + '/lib/generator/test_template.erb'
-        assert_equal expected_filename, subject.tests_template.filename
-      end
-
-      class TestTrackFilesUseLegacy
-        def initialize
-          @paths = FixturePaths
-          @exercise_name = 'beta'
-        end
-        attr_reader :paths, :exercise_name
-        include TrackFiles
-      end
-
-      def test_legacy_tests_template
-        subject = TestTrackFilesUseLegacy.new
-        expected_filename = FixturePaths.track + '/exercises/beta/example.tt'
-        assert_equal expected_filename, subject.tests_template.filename
+        subject = TestTrackFiles.new
+        assert_instance_of TestsTemplateFile, subject.tests_template
       end
     end
 

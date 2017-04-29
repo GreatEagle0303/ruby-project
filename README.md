@@ -13,16 +13,34 @@ with the language, so you're all set.
 
 ## Working on Test Suites
 
-Each problem should have a test suite and an example solution.  The example
-solution should be named `example.rb`.
+Each problem should have a test suite and an example solution.
+The example solution should be named `example.rb`.
 
 **Some test suites are generated from shared inputs/outputs, see
 [Generated Test Suites](#generated-test-suites) below.** In short, if
-a `lib/<problem>_cases.rb` file exists, then it's a generated problem.
+the problem directory contains an `example.tt` file, then it's a
+generated problem.
 
-Run the tests using `rake`, rather than `ruby path/to/the_test.rb`. `rake`
-knows to look for `example.rb` and to disable skips. Just tell `rake` the
-name of your problem and you are set:
+### Hard-coded Test Suites
+
+Run the test with `ruby path/to/the_test.rb`.
+
+At the moment the Ruby problems `skip` all but the first test, in order
+to not overwhelm people with errors.
+
+If you want to temporarily disable the skips while working on a test
+suite, you can run the file with a shim that temporarily disables them:
+
+```sh
+ruby -I./lib -rdisable_skip exercise/exercise/filename_test.rb
+```
+
+It is simpler to use the `rake` tool which is available in the project
+root.  It will disable the skip calls for you automatically, it does the
+same thing as the above.
+
+If you would like to use the `rake` tool to run a single test while
+developing clock, for example, you can do something like this:
 
 ```sh
 rake test:clock
@@ -34,8 +52,8 @@ the following:
 rake test:clock -- -p
 ```
 
-To run a subset of the tests, use a regular expression:
-
+To show an example of running a limited number of tests, we will use the
+"hamming" exercise with a pattern of "identical" to run (currently) two tests:
 ```sh
 rake test:hamming -- -p -n="/identical/"
 ```
@@ -132,9 +150,8 @@ helper methods. Beyond that, you can implement any helper methods that you need
 as private methods in your derived class. See below for more information about [the intention of workload](#workload-philosophy)
 
 If you really must add additional logic to the view template, you can use a custom
-template. Copy `lib/generator/test_template.erb` to the `.meta` directory under your
-exercise directory and customize. You may need to create `.meta` if you have not yet run
-`bin/generate` on your problem.
+template. Copy `lib/generator/test_template.erb` to your exercise directory, name it
+`exercise.tt`, and customize.
 
 You will not need to touch the top-level script, `bin/generate`.
 
@@ -145,7 +162,7 @@ You won't need to touch that, either.
 ### Workload philosophy.
 
 Prioritize educational value over expert comprehension and make sure that
-things are clear to people who may not be familiar with Minitest and even Ruby.
+things are clear to people who may not be familiar with Minitest and even Ruby. 
 
 Provide the information the student needs to derive the code to pass the test
 in a clear and consistent manner. Illustrate the purpose of the individual
