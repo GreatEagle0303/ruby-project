@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class AnagramCase < Generator::ExerciseCase
+class AnagramCase < ExerciseCase
 
   def workload
     indent_lines([show_comment, detector, anagram, wanted, assert].compact)

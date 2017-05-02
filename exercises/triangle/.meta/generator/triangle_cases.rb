@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class TriangleCase < Generator::ExerciseCase
+class TriangleCase < ExerciseCase
   def name
     initial = description.downcase
     replaced = initial.gsub(/(true|false)/, expected_type)

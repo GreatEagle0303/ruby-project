@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class PangramCase < Generator::ExerciseCase
+class PangramCase < ExerciseCase
   def workload
     [
     "phrase = '#{input}'",

@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class AlphameticsCase < Generator::ExerciseCase
+class AlphameticsCase < ExerciseCase
   def workload
     body =
       "input = %s\n" % input,

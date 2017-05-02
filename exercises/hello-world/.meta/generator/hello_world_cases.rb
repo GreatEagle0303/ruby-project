@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class HelloWorldCase < Generator::ExerciseCase
+class HelloWorldCase < ExerciseCase
 
   def workload
     assert_equal { "HelloWorld.hello" }

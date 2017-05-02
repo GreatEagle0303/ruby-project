@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class BracketPushCase < Generator::ExerciseCase
+class BracketPushCase < ExerciseCase
 
   def workload
     long_input? ? split_test : simple_test

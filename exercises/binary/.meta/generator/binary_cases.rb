@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class BinaryCase < Generator::ExerciseCase
+class BinaryCase < ExerciseCase
 
   def workload
     raises_error? ? error_assertion : equality_assertion

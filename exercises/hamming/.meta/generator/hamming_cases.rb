@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class HammingCase < Generator::ExerciseCase
+class HammingCase < ExerciseCase
   def workload
     if raises_error?
       assert_raises(ArgumentError) { test_case }

@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class BetaCase < Generator::ExerciseCase
+class BetaCase < ExerciseCase
   def workload
     assert_equal { "Beta.call('#{input}')" }
   end

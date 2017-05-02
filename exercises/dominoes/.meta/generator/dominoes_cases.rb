@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class DominoesCase < Generator::ExerciseCase
+class DominoesCase < ExerciseCase
   def name
     'test_%s' % description.gsub("can't", 'can not').gsub(/[= -]+/, '_')
   end

@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class GrainsCase < Generator::ExerciseCase
+class GrainsCase < ExerciseCase
 
   def workload
     send("#{property}_workload")

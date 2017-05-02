@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class ConnectCase < Generator::ExerciseCase
+class ConnectCase < ExerciseCase
 
   def test_body
     [

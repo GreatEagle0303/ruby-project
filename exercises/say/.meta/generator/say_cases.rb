@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class SayCase < Generator::ExerciseCase
+class SayCase < ExerciseCase
 
   def workload
     [

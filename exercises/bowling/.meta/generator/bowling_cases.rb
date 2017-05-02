@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class BowlingCase < Generator::ExerciseCase
+class BowlingCase < ExerciseCase
 
   def workload
     indent_lines(assert)

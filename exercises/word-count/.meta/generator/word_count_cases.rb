@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class WordCountCase < Generator::ExerciseCase
+class WordCountCase < ExerciseCase
 
   def workload
     indent_lines([

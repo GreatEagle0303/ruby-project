@@ -1,6 +1,6 @@
 require 'generator/exercise_cases'
 
-class OcrNumbersCase < Generator::ExerciseCase
+class OcrNumbersCase < ExerciseCase
   def workload
     if raises_error?
       assert_raises(ArgumentError) { test_case }
