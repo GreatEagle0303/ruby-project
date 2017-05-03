@@ -126,9 +126,7 @@ extracting the canonical data. The derived class wraps the JSON for a single
 test case. The default version looks something like this:
 
 ```
-require 'generator/exercise_case'
-
-class <ExerciseName>Case < Generator::ExerciseCase
+class <ExerciseName>Case < ExerciseCase
 
   def workload
     # Example workload:
