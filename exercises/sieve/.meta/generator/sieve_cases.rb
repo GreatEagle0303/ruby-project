@@ -1,4 +1,4 @@
-require 'generator/exercise_case'
+require 'generator/exercise_cases'
 
 class SieveCase < Generator::ExerciseCase
   OPEN_ARRAY = "[\n\s\s\s\s\s\s".freeze

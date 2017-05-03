@@ -1,4 +1,4 @@
-require 'generator/exercise_case'
+require 'generator/exercise_cases'
 
 class BowlingCase < Generator::ExerciseCase
 

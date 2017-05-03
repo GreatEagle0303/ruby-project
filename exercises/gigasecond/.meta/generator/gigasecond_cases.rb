@@ -1,4 +1,4 @@
-require 'generator/exercise_case'
+require 'generator/exercise_cases'
 require 'time'
 
 class GigasecondCase < Generator::ExerciseCase
