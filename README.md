@@ -17,7 +17,7 @@ The files for an exercise live in `exercises/<exercise_name>` (where
 `atbash-cipher`). All exercises have:
 
 * a test suite, `<exercise_name>_test.rb`
-* an example solution, `example.rb`
+* an example solution, `<exercise_name>.rb`, in `.meta/solutions`
 
 Tests with a test generator will also have:
 
