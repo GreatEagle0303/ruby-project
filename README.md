@@ -14,19 +14,17 @@ the language, so you're all set.
 
 The files for an exercise live in `exercises/<exercise_name>` (where
 `<exercise_name>` is the slug for the exercise, e.g. `clock` or
-`atbash-cipher`). Inside its directory, each exercise has:
+`atbash-cipher`). All exercises have:
 
 * a test suite, `<exercise_name>_test.rb`
-* an example solution, `.meta/solutions/<exercise_name>.rb`
+* an example solution, `example.rb`
 
-If the exercise has a test generator, the directory will also contain:
+Tests with a test generator will also have:
 
-* `.version`
-* the test generator, `.meta/generator/<exercise_name>_cases.rb`
+* a `.version`
+* the test generator, `<exercise_name>_cases.rb`, in `.meta/generator`
 
-A few exercises use a custom test template:
-
-* `.meta/generator/test_template.erb`
+A few tests have other custom files which are discussed below.
 
 ### Canonical Data
 
