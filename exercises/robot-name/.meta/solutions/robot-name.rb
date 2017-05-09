@@ -1,21 +1,43 @@
+module BookKeeping
+  VERSION = 2
+end
+
 class Robot
-  def self.forget
-    @@name_enumerator = [*'AA000'..'ZZ999'].shuffle.each
-  end
+  @taken_names = {}
 
-  self.forget
-
-  attr_reader :name
-
-  def initialize
-    reset
+  def name
+    @name ||= generate_name
   end
 
   def reset
-    @name = @@name_enumerator.next
+    @name = nil
   end
-end
 
-module BookKeeping
-  VERSION = 3
+  def self.taken_names
+    @taken_names
+  end
+
+  private
+
+  def generate_name
+    name = "#{prefix}#{suffix}"
+    if self.class.taken_names[name]
+      generate_name
+    else
+      self.class.taken_names[name] = true
+      name
+    end
+  end
+
+  def prefix
+    alphabet.sample(2).join('')
+  end
+
+  def suffix
+    rand(100...999)
+  end
+
+  def alphabet
+    ('A'..'Z').to_a
+  end
 end

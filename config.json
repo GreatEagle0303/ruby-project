@@ -61,6 +61,12 @@
       ]
     },
     {
+      "slug": "robot-name",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "slug": "nth-prime",
       "difficulty": 1,
       "topics": [
@@ -249,12 +255,6 @@
     {
       "slug": "meetup",
       "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "robot-name",
-      "difficulty": 6,
       "topics": [
       ]
     },
