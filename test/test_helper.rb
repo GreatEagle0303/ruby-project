@@ -4,26 +4,23 @@ require 'require_all'
 
 unless ENV['CI']
   require 'simplecov'
-
-  CoverageGroup = Struct.new(:name, :regex)
-
   SimpleCov.start do
     add_filter '/test/'
 
-    groups = [
-      CoverageGroup.new('Generator', %r{lib/generator}),
-      CoverageGroup.new('Tasks', %r{tasks}),
-      CoverageGroup.new('Cases', %r{exercises/.*_cases.rb$})
-    ]
-
-    groups.each do |group|
-      add_group group.name do |file|
-        file.filename.match(group.regex)
-      end
+    add_group 'Generator' do |file|
+      file.filename =~ /generator/
     end
 
+    add_group 'Tasks' do |file|
+      file.filename =~ /tasks/
+    end
+
+    add_group 'Cases', '_cases.rb'
+
     add_group 'Other' do |file|
-      groups.none? { |group| file.filename.match(group.regex) }
+      !(file.filename =~ /_cases\.rb$/) &&
+        file.filename !~ /generator/ &&
+        file.filename !~ /tasks/
     end
   end
 end
