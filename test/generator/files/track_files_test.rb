@@ -92,7 +92,7 @@ module Generator
         end
       end
 
-      def test_generate
+      def test_update_version
         mock_template = Minitest::Mock.new
         mock_values = Minitest::Mock.new
         mock_values.expect :get_binding, 'mock binding'
