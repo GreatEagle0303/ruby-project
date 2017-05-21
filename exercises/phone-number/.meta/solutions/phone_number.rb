@@ -25,5 +25,5 @@ module PhoneNumber
 end
 
 module BookKeeping
-  VERSION = 2
+  VERSION = 1
 end

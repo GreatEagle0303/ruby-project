@@ -1,7 +1,3 @@
-module BookKeeping
-  VERSION = 1
-end
-
 class SpaceAge
   attr_reader :seconds
 
