@@ -14,7 +14,7 @@ module Generator
       #  "#{assert} Luhn.valid?(#{input.inspect})"
       #
       def assert
-        canonical.expected ? 'assert' : 'refute'
+        expected ? 'assert' : 'refute'
       end
 
       # generates assertions of the form
@@ -29,8 +29,8 @@ module Generator
       #   assert_equal { "PigLatin.translate(#{input.inspect})" }
       #
       def assert_equal
-        assertion = canonical.expected.nil? ? 'assert_nil' :
-                      "assert_equal #{canonical.expected.inspect},"
+        assertion = expected.nil? ? 'assert_nil' :
+                      "assert_equal #{expected.inspect},"
         "#{assertion} #{yield}"
       end
 
@@ -43,7 +43,7 @@ module Generator
       #   end
       #
       def raises_error?
-        canonical.expected.to_i == -1
+        expected.to_i == -1
       end
 
       # generates assertions of the form
