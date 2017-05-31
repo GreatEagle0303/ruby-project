@@ -56,7 +56,7 @@ rake test:clock -- -p
 ```
 
 To run a subset of the tests, use a regular expression. For example, if tests
-exist that are named identical_to_4_places, and identical, then we can run both
+exist taht are named identical_to_4_places, and identical, then we can run both
 tests with
 
 ```sh
@@ -70,9 +70,6 @@ Note that flags which have an attached value, like above, must take the form
 ### Generated Test Suites
 
 Generated test suites use the `bin/generator` cli.
-
-Before using the cli it is recommended you run `bundle install` from within
-the xruby directory to install/update any required gems.
 
 While many of the exercises which have canonical data already have generators,
 some do not. To find out whether an exercise has a generator, run
@@ -255,6 +252,11 @@ For an in-depth discussion of how exercism language tracks and exercises work,
 please see the
 [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
 
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
 
 ## Ruby icon
 The Ruby icon is the Vienna.rb logo, and is used with permission. Thanks Floor Dress :)
