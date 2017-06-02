@@ -28,12 +28,16 @@ module Generator
         abbreviated_commit_hash: canonical_data.abbreviated_commit_hash,
         canonical_data_version: canonical_data.version,
         version: version,
-        exercise_name: exercise.name,
+        exercise_name: slug_underscore,
         test_cases: extract
       )
     end
 
     private
+
+    def slug_underscore
+      slug ? slug.tr('-_', '_') : ''
+    end
 
     def extract
       load cases_load_name
@@ -41,13 +45,13 @@ module Generator
     end
 
     def extractor
-      CaseValues::Extractor.new(
-        case_class: Object.const_get(exercise.case_class)
-      )
+        CaseValues::Extractor.new(
+          case_class: Object.const_get(Files::GeneratorCases.class_name(slug))
+        )
     end
 
     def cases_load_name
-      Files::GeneratorCases.source_filepath(paths.track, exercise.slug)
+      Files::GeneratorCases.source_filepath(paths.track, slug)
     end
   end
 end

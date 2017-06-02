@@ -6,12 +6,12 @@ module Generator
     include Files::MetadataFiles
     include TemplateValuesFactory
 
-    def initialize(paths:, exercise:)
+    def initialize(paths:, slug:)
       @paths = paths
-      @exercise = exercise
+      @slug = slug
     end
 
-    attr_reader :paths, :exercise
+    attr_reader :paths, :slug
 
     def version
       tests_version.to_i
@@ -25,11 +25,15 @@ module Generator
       example_solution.update_version(version)
     end
 
-    def build_tests
+    def create_tests_file
       minitest_tests.generate(
         template: tests_template.to_s,
         values: template_values
       )
+    end
+
+    def exercise_name
+      @exercise_name ||= slug.tr('-', '_')
     end
   end
 
@@ -54,9 +58,9 @@ module Generator
       @logger.debug "Updated version in example solution to #{version}"
     end
 
-    def build_tests
-      @implementation.build_tests
-      @logger.info "Generated #{exercise.slug} tests version #{version}"
+    def create_tests_file
+      @implementation.create_tests_file
+      @logger.info "Generated #{slug} tests version #{version}"
     end
   end
 end

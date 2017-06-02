@@ -22,6 +22,10 @@ module Generator
         mock_glob_call.verify
       end
 
+      def test_class_name
+        assert_equal 'TwoParterCase', GeneratorCases.class_name('two-parter')
+      end
+
       def test_source_filepath
         track_path = '/track'
         slug = 'slug'
