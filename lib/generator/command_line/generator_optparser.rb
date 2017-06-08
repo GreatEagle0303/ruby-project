@@ -61,9 +61,9 @@ module Generator
     def metadata_repository_missing_message(repository)
       <<-EOM.gsub(/^ {6}/, '')
 
-      'problem-specifications' repository not found.
+      'x-common' repository not found.
       Try running the command:
-        git clone https://github.com/exercism/problem-specifications.git "#{repository}"
+        git clone https://github.com/exercism/x-common.git "#{repository}"
 
       EOM
     end
