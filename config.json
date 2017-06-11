@@ -599,12 +599,6 @@
     "octal",
     "point-mutations"
   ],
-  "ignored": [
-    "docs",
-    "img",
-    "lib",
-    "test"
-  ],
   "foregone": [
 
   ]
