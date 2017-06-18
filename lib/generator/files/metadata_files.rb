@@ -3,14 +3,14 @@ module Generator
     module MetadataFiles
       def canonical_data
         CanonicalDataFile.new(
-          filename: File.join(metadata_path, 'canonical-data.json'),
+          filename: File.join(exercise_metadata_path, 'canonical-data.json'),
           repository_root: paths.metadata)
       end
 
       private
 
-      def metadata_path
-        File.join(paths.metadata, 'exercises', slug)
+      def exercise_metadata_path
+        File.join(paths.metadata, 'exercises', exercise.slug)
       end
     end
 

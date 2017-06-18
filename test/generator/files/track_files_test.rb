@@ -11,9 +11,9 @@ module Generator
       class TestTrackFiles
         def initialize
           @paths = FixturePaths
-          @slug  = 'alpha-beta'
+          @exercise = Exercise.new(slug: 'alpha-beta')
         end
-        attr_reader :paths, :slug
+        attr_reader :paths, :exercise
         include TrackFiles
       end
 
@@ -39,18 +39,13 @@ module Generator
         assert_equal expected_filename, subject.tests_template.filename
       end
 
-      def test_test_case
-        subject = TestTrackFiles.new
-        expected_filename = FixturePaths.track + '/exercises/alpha-beta/.meta/generator/alpha_beta_case.rb'
-        assert_equal expected_filename, subject.test_case.filename
-      end
 
       class TestTrackFilesUseDefault
         def initialize
           @paths = FixturePaths
-          @slug = 'no-template'
+          @exercise = Exercise.new(slug: 'notemplate')
         end
-        attr_reader :paths, :slug
+        attr_reader :paths, :exercise
         include TrackFiles
       end
 
