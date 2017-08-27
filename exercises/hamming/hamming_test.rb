@@ -1,15 +1,10 @@
 require 'minitest/autorun'
 require_relative 'hamming'
 
-# Common test data version: 2.0.0 a2aff5b
+# Common test data version: 1.0.0 bb56dc7
 class HammingTest < Minitest::Test
-  def test_empty_strands
-    # skip
-    assert_equal 0, Hamming.compute('', '')
-  end
-
   def test_identical_strands
-    skip
+    # skip
     assert_equal 0, Hamming.compute('A', 'A')
   end
 
@@ -66,6 +61,11 @@ class HammingTest < Minitest::Test
   def test_large_distance_in_off_by_one_strand
     skip
     assert_equal 9, Hamming.compute('GGACGGATTCTG', 'AGGACGGATTCT')
+  end
+
+  def test_empty_strands
+    skip
+    assert_equal 0, Hamming.compute('', '')
   end
 
   def test_disallow_first_strand_longer
