@@ -1,5 +1,5 @@
 module BookKeeping
-  VERSION = 4
+  VERSION = 3
 end
 
 class TwoBucket
