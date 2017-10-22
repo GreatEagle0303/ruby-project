@@ -1,35 +1,35 @@
 require 'minitest/autorun'
 require_relative 'queen_attack'
 
-# Common test data version: 2.0.0 44a1e12
+# Common test data version: 1.0.0 8adde5f
 class QueenAttackTest < Minitest::Test
   def test_queen_with_a_valid_position
     # skip
     assert Queens.new(white: [2, 2])
   end
 
-  def test_queen_must_have_positive_row
+  def test_queen_must_have_positive_rank
     skip
     assert_raises ArgumentError do
       Queens.new(white: [-2, 2])
     end
   end
 
-  def test_queen_must_have_row_on_board
+  def test_queen_must_have_rank_on_board
     skip
     assert_raises ArgumentError do
       Queens.new(white: [8, 4])
     end
   end
 
-  def test_queen_must_have_positive_column
+  def test_queen_must_have_positive_file
     skip
     assert_raises ArgumentError do
       Queens.new(white: [2, -2])
     end
   end
 
-  def test_queen_must_have_column_on_board
+  def test_queen_must_have_file_on_board
     skip
     assert_raises ArgumentError do
       Queens.new(white: [4, 8])
@@ -42,13 +42,13 @@ class QueenAttackTest < Minitest::Test
     refute queens.attack?
   end
 
-  def test_can_attack_on_same_row
+  def test_can_attack_on_same_rank
     skip
     queens = Queens.new(white: [2, 4], black: [2, 6])
     assert queens.attack?
   end
 
-  def test_can_attack_on_same_column
+  def test_can_attack_on_same_file
     skip
     queens = Queens.new(white: [4, 5], black: [2, 5])
     assert queens.attack?
