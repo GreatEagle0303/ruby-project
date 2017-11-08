@@ -887,17 +887,6 @@
       ]
     },
     {
-      "uuid": "b02a4214-0f1a-9480-2132-2ea3d5073dbfbec0aa4",
-      "slug": "two-fer",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "Control-flow (conditionals)",
-        "Strings"
-      ]
-    },
-    {
       "uuid": "cae4e000-3aac-41f7-b727-f9cce12d058d",
       "slug": "octal",
       "deprecated": true
@@ -906,12 +895,6 @@
       "uuid": "89bd3d71-000f-4cd9-9a84-ad1b22ddbd33",
       "slug": "point-mutations",
       "deprecated": true
-    },
-    {
-      "uuid": "4ca1322e-0c39-1e80-91e9-6b3f9ccf894f9058490",
-      "slug": "complex-numbers",
-      "difficulty": 3,
-      "topics": [ "Mathematics" ]
     }
   ],
   "foregone": [

@@ -1,5 +1,5 @@
 module BookKeeping
-  VERSION = 4
+  VERSION = 3
 end
 
 class TwoBucket
@@ -15,15 +15,11 @@ class TwoBucket
   def moves
     if @start_bucket == 'one'
       @levels = [@first_size, 0]
-      strategy = method(:start_from_first)
+      solve method(:start_from_first)
     else
       @levels = [0, @second_size]
-      strategy = method(:start_from_second)
+      solve method(:start_from_second)
     end
-    if other_bucket_matches_goal
-      strategy = method(:fill_other_bucket)
-    end
-    solve strategy
   end
 
   private
@@ -69,22 +65,6 @@ class TwoBucket
       fill_second_bucket
     elsif can_move_to_first_bucket?
       fill_first_bucket_from_second
-    end
-  end
-
-  def fill_other_bucket
-    if first_bucket_empty?
-      fill_first_bucket
-    else
-      fill_second_bucket
-    end
-  end
-
-  def other_bucket_matches_goal
-    if @start_bucket == 'one'
-      @second_size == @goal
-    else
-      @first_size == @goal
     end
   end
 

@@ -26,7 +26,7 @@ and `r` is the number of rows.
 Our normalized text is 54 characters long, dictating a rectangle with
 `c = 8` and `r = 7`:
 
-```text
+```plain
 ifmanwas
 meanttos
 tayonthe
@@ -41,24 +41,22 @@ right.
 
 The message above is coded as:
 
-```text
+```plain
 imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau
 ```
 
-Output the encoded text in chunks.  Phrases that fill perfect rectangles
-`(r X c)` should be output `c` chunks of `r` length, separated by spaces.
-Phrases that do not fill perfect rectangles will have `n` empty spaces.
-Those spaces should be distributed evenly, added to the end of the last
-`n` chunks.
+Output the encoded text in chunks.  Phrases that fill perfect squares
+`(r X r)` should be output in `r`-length chunks separated by spaces.
+Imperfect squares will have `n` empty spaces.  Those spaces should be distributed evenly across the last `n` rows.
 
-```text
-imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau 
+```plain
+imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
 ```
 
 Notice that were we to stack these, we could visually decode the
 cyphertext back in to the original message:
 
-```text
+```plain
 imtgdvs
 fearwer
 mayoogo

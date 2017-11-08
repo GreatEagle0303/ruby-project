@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative 'hamming'
 
-# Common test data version: 2.0.1 f79dfd7
+# Common test data version: 2.0.0 a2aff5b
 class HammingTest < Minitest::Test
   def test_empty_strands
     # skip
@@ -45,12 +45,12 @@ class HammingTest < Minitest::Test
 
   def test_non_unique_character_in_first_strand
     skip
-    assert_equal 1, Hamming.compute('AAG', 'AAA')
+    assert_equal 1, Hamming.compute('AGA', 'AGG')
   end
 
   def test_non_unique_character_in_second_strand
     skip
-    assert_equal 1, Hamming.compute('AAA', 'AAG')
+    assert_equal 1, Hamming.compute('AGG', 'AGA')
   end
 
   def test_same_nucleotides_in_different_positions
