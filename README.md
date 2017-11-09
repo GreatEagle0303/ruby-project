@@ -106,7 +106,10 @@ tree -L 1 ~/code/exercism
 
 From within the ruby directory, run the following command:
 
-    bin/generate <slug>
+    bin/generate --update <slug> 
+
+Leaving out the --update option will cause the BookKeeping version number to remain the same.
+This can be useful when testing generators.
 
 #### Changing a Generated Exercise
 
@@ -252,14 +255,8 @@ string indices to integer indices.
 
 ## READMEs
 
-All exercises must have a README.md file, but should not be created manually. The READMEs
+Do not add a README or README.md file to the exercise's directory. The READMEs
 are constructed using shared metadata, which lives in the [problem-specifications][] repo.
-
-Use the `configlet` tool to generate a README from shared metadata:
-
-1. Clone the [problem-specifications][] repo into an adjacent directory.
-2. Fetch the configlet appropriate for your system: `bin/fetch-configlet`
-3. Generate the readme for a particular exercise: `bin/configlet generate . --only rotational-cipher`
 
 ## Contributing Guide
 
