@@ -1,16 +1,30 @@
 # Nucleotide Count
 
-Given a single stranded DNA string, compute how many times each nucleotide occurs in the string.
+Given a DNA string, compute how many times each nucleotide occurs in the string.
 
-The genetic language of every living thing on the planet is DNA.
-DNA is a large molecule that is built from an extremely long sequence of individual elements called nucleotides.
-4 types exist in DNA and these differ only slightly and can be represented as the following symbols: 'A' for adenine, 'C' for cytosine, 'G' for guanine, and 'T' thymine.
+DNA is represented by an alphabet of the following symbols: 'A', 'C',
+'G', and 'T'.
 
-Here is an analogy:
+Each symbol represents a nucleotide, which is a fancy name for the
+particular molecules that happen to make up a large part of DNA.
+
+Shortest intro to biochemistry EVAR:
+
 - twigs are to birds nests as
-- nucleotides are to DNA as
-- legos are to lego houses as
-- words are to sentences as...
+- nucleotides are to DNA and RNA as
+- amino acids are to proteins as
+- sugar is to starch as
+- oh crap lipids
+
+I'm not going to talk about lipids because they're crazy complex.
+
+So back to nucleotides.
+
+DNA contains four types of them: adenine (`A`), cytosine (`C`), guanine
+(`G`), and thymine (`T`).
+
+RNA contains a slightly different set of nucleotides, but we don't care
+about that for now.
 
 * * * *
 
@@ -26,13 +40,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby nucleotide_count_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride nucleotide_count_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source

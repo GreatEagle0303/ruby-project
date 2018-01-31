@@ -32,13 +32,10 @@ It is typical to call [#to_enum](http://ruby-doc.org/core-2.3.1/Object.html#meth
 Here is an additional test you could add:
 
 ```ruby
-def test_accumulate_when_block_is_deferred
+def test_no_block_is_passed
   skip
-  accumulate_enumerator = [1, 2, 3].accumulate
-  accumulated_result = accumulate_enumerator.each do |number|
-    number * number
-  end
-  assert_equal [1, 4, 9], accumulated_result
+  result = [1, 2, 3].accumulate
+  assert_instance_of Enumerator, result
 end
 ```
 
@@ -57,13 +54,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby accumulate_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride accumulate_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source

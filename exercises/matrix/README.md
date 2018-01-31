@@ -5,15 +5,13 @@ that matrix.
 
 So given a string with embedded newlines like:
 
-```text
-9 8 7
-5 3 2
-6 6 7
-```
+> 9 8 7  
+> 5 3 2  
+> 6 6 7  
 
 representing this matrix:
 
-```text
+```plain
     0  1  2
   |---------
 0 | 9  8  7
@@ -54,13 +52,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby matrix_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride matrix_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source

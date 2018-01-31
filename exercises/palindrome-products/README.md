@@ -5,12 +5,19 @@ Detect palindrome products in a given range.
 A palindromic number is a number that remains the same when its digits are
 reversed. For example, `121` is a palindromic number but `112` is not.
 
-Given a range of numbers, find the largest and smallest palindromes which
-are products of numbers within that range.
+Given the definition of a palindromic number, we define a palindrome _product_
+to be the product `c`, such that `a * b = c`, where `c` is a palindromic number and
+ `a` and `b` are integers (possibly, but _not_ necessarily palindromic numbers).
 
-Your solution should return the largest and smallest palindromes, along with the
-factors of each within the range. If the largest or smallest palindrome has more
-than one pair of factors within the range, then return all the pairs.
+For example, the palindromic number 9009 can be written as the palindrome
+product: `91 * 99 = 9009`.
+
+It's possible (and indeed common) for a palindrome product to be the product
+of multiple combinations of numbers. For example, the palindrome product `9` has
+the factors `(1, 9)` and `(3, 3)`.
+
+Write a program that given a range of integers, returns the smallest and largest
+palindromic product of factors within that range, along with all the factors in the range for that product.
 
 ## Example 1
 
@@ -46,13 +53,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby palindrome_products_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride palindrome_products_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source

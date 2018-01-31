@@ -15,6 +15,7 @@ Write code that shows:
 - how many grains were on each square, and
 - the total number of grains
 
+
 ## For bonus points
 
 Did you get the tests passing and the code clean? If you want to, these
@@ -40,13 +41,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby grains_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride grains_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source

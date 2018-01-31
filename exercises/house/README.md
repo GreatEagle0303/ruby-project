@@ -1,6 +1,6 @@
 # House
 
-Recite the nursery rhyme 'This is the House that Jack Built'.
+Output the nursery rhyme 'This is the House that Jack Built'.
 
 > [The] process of placing a phrase of clause within another phrase of
 > clause is called embedding. It is through the processes of recursion
@@ -11,9 +11,10 @@ Recite the nursery rhyme 'This is the House that Jack Built'.
 
 - [papyr.com](http://papyr.com/hypertextbooks/grammar/ph_noun.htm)
 
+
 The nursery rhyme reads as follows:
 
-```text
+```plain
 This is the house that Jack built.
 
 This is the malt
@@ -119,13 +120,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby house_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride house_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source

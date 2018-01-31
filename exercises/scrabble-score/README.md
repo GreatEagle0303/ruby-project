@@ -6,7 +6,7 @@ Given a word, compute the scrabble score for that word.
 
 You'll need these:
 
-```text
+```plain
 Letter                           Value
 A, E, I, O, U, L, N, R, S, T       1
 D, G                               2
@@ -18,7 +18,6 @@ Q, Z                               10
 ```
 
 ## Examples
-
 "cabbage" should be scored as worth 14 points:
 
 - 3 points for C
@@ -35,7 +34,6 @@ And to total:
 - = 14
 
 ## Extensions
-
 - You can play a double or a triple letter.
 - You can play a double or a triple word.
 
@@ -53,13 +51,15 @@ If you would like color output, you can `require 'minitest/pride'` in
 the test file, or note the alternative instruction, below, for running
 the test file.
 
-Run the tests from the exercise directory using the following command:
+In order to run the test, you can run the test file from the exercise
+directory. For example, if the test suite is called
+`hello_world_test.rb`, you can run the following command:
 
-    ruby scrabble_score_test.rb
+    ruby hello_world_test.rb
 
 To include color from the command line:
 
-    ruby -r minitest/pride scrabble_score_test.rb
+    ruby -r minitest/pride hello_world_test.rb
 
 
 ## Source
