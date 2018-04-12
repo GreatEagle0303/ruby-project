@@ -109,29 +109,6 @@ tree -L 1 ~/code/exercism
 ├── problem-specifications
 └── ruby
 ```
-To explain a bit more, you must follow this commands step-by-step:-
-
-``` bash
-  $ mkdir exercism
-  $ cd exercism
-```
-Fork the [exercism/ruby](https://github.com/exercism/ruby)
-
-Fork the [exercism/problem-specifications](https://github.com/exercism/problem-specifications)
-
-Now you need to clone both the above repositories
-``` bash
-
-$ git clone https://github.com/YOUR-USERNAME/YOUR-RUBY-REPOSITORY
-$ git clone https://github.com/YOUR-USERNAME/YOUR-PROBLEM-S-REPOSITORY
-
-```
-Next, you need to [configure the remote](https://help.github.com/articles/configuring-a-remote-for-a-fork/) and [synchronize](https://help.github.com/articles/syncing-a-fork/) it.
-
-Make sure you have synced up local master branch and upstream master branch.
-Since this will keep local master branch up-to-date with the upstream repository.
-Thereby, you will able to get the latest commits.
-
 
 #### Regenerating a Test Suite
 
@@ -347,14 +324,8 @@ converting string indices to integer indices.
 
 ## READMEs
 
-<<<<<<< HEAD
 All exercises must have a README.md file, but should not be created manually. The READMEs
 are constructed using shared metadata, which lives in the [problem-specifications][] repo.
-=======
-Do not add a README or README.md file to the exercise's directory. The READMEs
-are constructed using shared metadata, which lives in the
-[problem-specifications][] repo.
->>>>>>> Whitespace and wrapping, not integral to this PR
 
 Use the `configlet` tool to generate a README from shared metadata:
 
