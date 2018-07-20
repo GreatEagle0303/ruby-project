@@ -11,9 +11,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "strings"
-      ]
+      "topics": null
     },
     {
       "slug": "hamming",
@@ -21,10 +19,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "strings",
-        "control_flow_conditionals"
-      ]
+      "topics": null
     },
     {
       "slug": "gigasecond",
@@ -32,10 +27,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "time",
-        "mathematics"
-      ]
+      "topics": null
     },
     {
       "slug": "rna-transcription",
@@ -43,11 +35,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "control_flow_conditionals",
-        "control_flow_loops",
-        "strings"
-      ]
+      "topics": null
     },
     {
       "slug": "raindrops",
@@ -55,10 +43,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "control_flow_conditionals",
-        "mathematics"
-      ]
+      "topics": null
     },
     {
       "slug": "difference-of-squares",
@@ -66,11 +51,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "integers",
-        "mathematics",
-        "algorithms"
-      ]
+      "topics": null
     },
     {
       "slug": "pangram",
@@ -78,10 +59,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "strings",
-        "control_flow_conditionals"
-      ]
+      "topics": null
     },
     {
       "slug": "sieve",
@@ -89,11 +67,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "mathematics",
-        "integers",
-        "algorithms"
-      ]
+      "topics": null
     },
     {
       "slug": "roman-numerals",
@@ -101,11 +75,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "algorithms",
-        "control_flow_conditionals",
-        "control_flow_loops"
-      ]
+      "topics": null
     },
     {
       "slug": "nth-prime",
@@ -113,11 +83,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "mathematics",
-        "algorithms",
-        "control_flow_loops"
-      ]
+      "topics": null
     },
     {
       "slug": "leap",
@@ -125,11 +91,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "integers",
-        "mathematics",
-        "control_flow_conditionals"
-      ]
+      "topics": null
     },
     {
       "slug": "grains",
@@ -145,10 +107,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "strings",
-        "algorithms"
-      ]
+      "topics": null
     },
     {
       "slug": "bob",
@@ -156,11 +115,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "regular_expressions",
-        "strings",
-        "control_flow_conditionals"
-      ]
+      "topics": null
     },
     {
       "slug": "run-length-encoding",
@@ -216,10 +171,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "strings",
-        "parsing"
-      ]
+      "topics": null
     },
     {
       "slug": "prime-factors",
@@ -227,10 +179,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "mathematics",
-        "integers"
-      ]
+      "topics": null
     },
     {
       "slug": "strain",
@@ -262,10 +211,7 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": [
-        "strings",
-        "control_flow_loops"
-      ]
+      "topics": null
     },
     {
       "slug": "bowling",
@@ -842,6 +788,18 @@
       "difficulty": 7,
       "topics": [
         "Data Structures"
+      ]
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "d1267415-aff5-411d-b267-49a4a2c8fda2",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "cryptography",
+        "mathematics",
+        "strings"
       ]
     }
   ]
