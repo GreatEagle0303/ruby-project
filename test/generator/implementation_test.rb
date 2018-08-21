@@ -8,13 +8,6 @@ module Generator
       track: 'test/fixtures/ruby'
     )
 
-    def test_slug
-      exercise = Minitest::Mock.new.expect :slug, 'alpha'
-      repository = nil
-      subject = Implementation.new(repository: repository, exercise: exercise)
-      assert_equal 'alpha', subject.slug
-    end
-
     def test_version
       exercise = Minitest::Mock.new.expect :slug, 'alpha'
       repository = Repository.new(paths: FixturePaths, slug: 'alpha')
@@ -68,27 +61,6 @@ class AlphaTest < Minitest::Test
     assert true
   end
 
-  # Problems in exercism evolve over time, as we find better ways to ask
-  # questions.
-  # The version number refers to the version of the problem you solved,
-  # not your solution.
-  #
-  # Define a constant named VERSION inside of the top level BookKeeping
-  # module, which may be placed near the end of your file.
-  #
-  # In your file, it will look like this:
-  #
-  # module BookKeeping
-  #   VERSION = 1 # Where the version number matches the one in the test.
-  # end
-  #
-  # If you are curious, read more about constants on RubyDoc:
-  # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
-
-  def test_bookkeeping
-    skip
-    assert_equal 1, BookKeeping::VERSION
-  end
 end
 TESTS_FILE
       mock_file = Minitest::Mock.new.expect :write, expected_content.length, [expected_content]
