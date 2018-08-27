@@ -3,4 +3,3 @@ bin/configlet
 bin/configlet.exe
 Gemfile.lock
 coverage/
-.last_generator_run
