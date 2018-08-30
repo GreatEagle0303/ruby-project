@@ -1,5 +1,9 @@
+require 'generator/underscore'
+
 module Generator
   class Exercise
+    using Generator::Underscore
+
     attr_reader :slug
 
     def initialize(slug:)
@@ -7,11 +11,11 @@ module Generator
     end
 
     def name
-      slug.tr('-', '_')
+      @name ||= slug.underscore
     end
 
     def case_class
-      slug.split('-').map(&:capitalize).join + 'Case'
+      slug.camel_case + 'Case'
     end
   end
 end

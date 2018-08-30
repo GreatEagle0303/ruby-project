@@ -9,13 +9,12 @@ module Generator
       #
       # depending on whether 'expected' is true or false
       #
-      # Example:
+      # call as
       #
-      #  assert_or_refute(expected, "Luhn.valid?(#{input.inspect})")
+      #  "#{assert} Luhn.valid?(#{input.inspect})"
       #
-      def assert_or_refute(expected, actual)
-        assertion = expected ? 'assert' : 'refute'
-        "#{assertion} #{actual}\n"
+      def assert
+        canonical.expected ? 'assert' : 'refute'
       end
 
       # generates assertions of the form
@@ -25,31 +24,38 @@ module Generator
       #
       # depending on whether 'expected' is nil or not
       #
-      # Example:
+      # call as
       #
-      #   assert_equal(expected, "PigLatin.translate(#{input.inspect})")
+      #   assert_equal { "PigLatin.translate(#{input.inspect})" }
       #
-      def assert_equal(expected, actual)
-        assertion = expected.nil? ? 'assert_nil' : "assert_equal #{expected.inspect},"
-        "#{assertion} #{actual}\n"
+      def assert_equal
+        assertion = canonical.expected.nil? ? 'assert_nil' :
+                      "assert_equal #{canonical.expected.inspect},"
+        "#{assertion} #{yield}"
+      end
+
+      # a helper function, used to build statements such as
+      #
+      #   if raises_error?
+      #     assert_raises(ArgumentError) { test_case }
+      #   else
+      #     assert_equal { test_case }
+      #   end
+      #
+      def raises_error?
+        canonical.expected.to_i == -1
       end
 
       # generates assertions of the form
       #
-      #   assert_raises(SomeError) do
-      #     whatever
-      #   end
+      #   assert_raises(SomeError) { whatever }
       #
-      # Example
+      # call as
       #
-      #   assert_raises(ArgumentError, 'Say.new(number).in_english')
+      #   assert_raises(ArgumentError) { test_case }
       #
-      def assert_raises(error, actual)
-        [
-          "assert_raises(#{error}) do\n",
-          "#{actual}\n".gsub(/^/, '  '), # indent by 2
-          "end\n"
-        ].join
+      def assert_raises(error)
+        "assert_raises(#{error}) { #{yield} }"
       end
     end
   end

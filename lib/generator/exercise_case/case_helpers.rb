@@ -3,16 +3,25 @@ module Generator
     module CaseHelpers
       protected
 
-      def snake_case(string)
-        string.gsub(/([A-Z])/, '_\1').downcase
+      # indent multi line workloads
+      #
+      #   indent_lines(
+      #     [
+      #       "string = #{input.inspect}",
+      #       "#{assert} Isogram.is_isogram?(string)"
+      #     ], 4
+      #   )
+      def indent_lines(code, depth, separator = "\n")
+        code.join(separator + ' ' * depth)
       end
 
-      # Takes a string and indents each line by 'depth' spaces.
-      # Will NOT add spaces to empty lines.
+      # indent multi line workloads with (unindented) blank lines
       #
-      # usage:  indent_by( 2, "line 1\n\nline 2\n" )
-      def indent_by(depth, string)
-        string.gsub(/^(.+)$/, ' ' * depth + '\1')
+      #   indent_text(4, text)
+      def indent_text(depth, text)
+        text.lines.reduce do |obj, line|
+          obj << (line == "\n" ? line : ' ' * depth + line)
+        end
       end
 
       # generate heredoc (as part of workload) with optional indentation
@@ -24,11 +33,6 @@ module Generator
           lines.map { |line| ' ' * depth + line }.join("\n"),
           delimiter
         ].join("\n")
-      end
-
-      def underscore(number)
-        fail ArgumentError, "#{number.inspect} is not an Integer" unless number.is_a? Integer
-        number.to_s.reverse.gsub(/...(?=.)/, '\&_').reverse
       end
     end
   end
