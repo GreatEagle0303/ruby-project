@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative 'two_fer'
 
-# Common test data version: 1.2.0 4fc1acb
+# Common test data version: 1.1.0 c080bdf
 class TwoFerTest < Minitest::Test
   def test_no_name_given
     # skip

@@ -1,6 +1,12 @@
 require 'generator/exercise_case'
 
 class ClockCase < Generator::ExerciseCase
+  def name
+    'test_%s' % description
+                .gsub(/[() -]/, '_')
+                .gsub('=', 'is_equal_to')
+                .chomp('_')
+  end
 
   def workload
     case property
@@ -9,43 +15,56 @@ class ClockCase < Generator::ExerciseCase
     when 'subtract' then subtract_from_clock
     when 'equal' then compare_clocks
     else
-      fail "Encountered unknown property in canonical-data.json"
+      raise "Encountered unknown property in canonical-data.json"
     end
-  end
-
-  def description
-    super.gsub('=', 'is_equal_to').gsub(/\(.*\)/,'')
   end
 
   private
 
   def compare_clocks
-    [
-      "clock1 = Clock.new(hour: #{clock1['hour']}, minute: #{clock1['minute']})\n",
-      "clock2 = Clock.new(hour: #{clock2['hour']}, minute: #{clock2['minute']})\n",
-      assert_or_refute(expected, "clock1 == clock2")
-    ].join
+    first_hour = input['clock1']['hour']
+    first_minute = input['clock1']['minute']
+    second_hour = input['clock2']['hour']
+    second_minute = input['clock2']['minute']
+
+    indent_lines(
+      [
+        "clock1 = Clock.new(hour: #{first_hour}, minute: #{first_minute})",
+        "clock2 = Clock.new(hour: #{second_hour}, minute: #{second_minute})",
+        "#{assert} clock1 == clock2"
+      ], 4
+    )
   end
 
   def simple_test
-    keyword_arguments = %w(hour minute).map { |key| [key, input[key]] }
+    keyword_arguments = %w[hour minute].map { |key| [key, input[key]] }
     keyword_arguments.reject! { |_, value| value.zero? }
     keyword_arguments.map! { |key, value| "#{key}: #{value}" }
 
-    assert_equal(expected, "Clock.new(#{keyword_arguments.join(', ')}).to_s")
+    clock_builder = "Clock.new(#{keyword_arguments.join(', ')}).to_s"
+    indent_text(4, "assert_equal #{expected.inspect}, #{clock_builder}")
+
   end
 
   def add_to_clock
-    [
-      "clock1 = Clock.new(hour: #{input['hour']}, minute: #{input['minute']})\n",
-      assert_equal(expected, "(clock1 + Clock.new(minute: #{input['value']})).to_s")
-    ].join
+    clock1 = "clock1 = Clock.new(hour: #{input['hour']}, minute: #{input['minute']})"
+    add = "(clock1 + Clock.new(minute: #{input['value']})).to_s"
+    indent_lines(
+      [
+        "#{clock1}",
+        "assert_equal #{expected.inspect}, #{add}"
+      ], 4
+    )
   end
 
   def subtract_from_clock
-    [
-      "clock1 = Clock.new(hour: #{input['hour']}, minute: #{input['minute']})\n",
-      assert_equal(expected, "(clock1 - Clock.new(minute: #{input['value']})).to_s")
-    ].join
+    clock1 = "clock1 = Clock.new(hour: #{input['hour']}, minute: #{input['minute']})"
+    subtract = "(clock1 - Clock.new(minute: #{input['value']})).to_s"
+    indent_lines(
+      [
+        "#{clock1}",
+        "assert_equal #{expected.inspect}, #{subtract}"
+      ], 4
+    )
   end
 end

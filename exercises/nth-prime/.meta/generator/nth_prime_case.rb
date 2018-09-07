@@ -1,17 +1,23 @@
 require 'generator/exercise_case'
 
 class NthPrimeCase < Generator::ExerciseCase
+
   def workload
-    if error_expected?
-      assert_raises(ArgumentError, subject_of_test)
+    if raises_error?
+      assert_raises(ArgumentError) { test_case }
     else
-      assert_equal(expected, subject_of_test)
+      assert_equal { test_case }
     end
   end
 
   private
 
-  def subject_of_test
-    "Prime.nth(#{number})"
+  def test_case
+    "Prime.nth(#{input})"
   end
+
+  def raises_error?
+    expected == false
+  end
+
 end

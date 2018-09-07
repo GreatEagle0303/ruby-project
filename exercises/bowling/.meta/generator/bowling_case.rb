@@ -3,45 +3,46 @@ require 'generator/exercise_case'
 class BowlingCase < Generator::ExerciseCase
 
   def workload
-    [
-      roll_previous,
-      assert
-    ].join
+    indent_lines(assert)
   end
 
   private
 
   def roll_previous
-    [
-    "game = Game.new\n",
-    "rolls = #{previous_rolls}\n",
-    "rolls.each { |pins| game.roll(pins) }\n"
-    ]
+    "record(#{previous_rolls})"
   end
 
   def assert
-    return error_assertion if error_expected?
-    standard_assertion
+    if assert_error?
+      property == 'score' ? score_raises : roll_raises
+    else
+      [roll_previous, "assert_equal #{expected}, @game.score"]
+    end
   end
 
-  def standard_assertion
-    ["assert_equal #{expected}, game.score\n"]
-  end
-
-  def error_assertion
-    body = case property
-           when 'score' then "game.score\n"
-           when 'roll'  then "game.roll(#{roll})\n"
-           end
-
-    assert_raises("Game::BowlingError", body)
-  end
-
-  def assert_raises(error, body)
+  def roll_raises
     [
-      "assert_raises #{error} do\n",
-        indent_by(2, body),
-      "end\n"
+      roll_previous,
+      'assert_raises Game::BowlingError do',
+      '  @game.roll(' + roll.to_s + ')',
+      'end'
     ]
+  end
+
+  def score_raises
+    [
+      roll_previous,
+      'assert_raises Game::BowlingError do',
+      '  @game.score',
+      'end'
+    ]
+  end
+
+  def assert_error?
+    expected.respond_to?(:key?) && expected.key?('error')
+  end
+
+  def indent_lines(code)
+    code.join("\n" + ' ' * 4)
   end
 end

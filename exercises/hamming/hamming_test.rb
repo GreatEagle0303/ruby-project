@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative 'hamming'
 
-# Common test data version: 2.1.0 b5d154b
+# Common test data version: 2.0.1 f79dfd7
 class HammingTest < Minitest::Test
   def test_empty_strands
     # skip
@@ -70,15 +70,11 @@ class HammingTest < Minitest::Test
 
   def test_disallow_first_strand_longer
     skip
-    assert_raises(ArgumentError) do
-      Hamming.compute('AATG', 'AAA')
-    end
+    assert_raises(ArgumentError) { Hamming.compute('AATG', 'AAA') }
   end
 
   def test_disallow_second_strand_longer
     skip
-    assert_raises(ArgumentError) do
-      Hamming.compute('ATA', 'AGTG')
-    end
+    assert_raises(ArgumentError) { Hamming.compute('ATA', 'AGTG') }
   end
 end

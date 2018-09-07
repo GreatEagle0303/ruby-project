@@ -1,12 +1,15 @@
 require 'minitest/autorun'
-require_relative '<%= exercise_name %>'
+require_relative 'bowling'
 
 # Common test data version: <%= canonical_data_version %> <%= abbreviated_commit_hash %>
-class <%= exercise_test_classname %> < Minitest::Test
-  # assert_in_delta will pass if the difference
-  # between the values being compared is less
-  # than the allowed delta
-  DELTA = 0.01
+class BowlingTest < Minitest::Test
+  def setup
+    @game = Game.new
+  end
+
+  def record(rolls)
+    rolls.each { |pins| @game.roll(pins) }
+  end
 
 <% test_cases.each_with_index do |test_case, idx| %>
   def <%= test_case.name %>

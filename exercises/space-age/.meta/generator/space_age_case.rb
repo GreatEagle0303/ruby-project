@@ -1,10 +1,10 @@
 require 'generator/exercise_case'
 
 class SpaceAgeCase < Generator::ExerciseCase
+
   def workload
-    [
-      "age = SpaceAge.new(#{underscore(seconds)})\n",
-      "assert_in_delta #{expected}, age.on_#{planet.downcase}, DELTA\n"
-    ].join
+    indent_lines(["age = SpaceAge.new(#{literal(seconds)})",
+      "assert_in_delta #{expected}, age.on_#{planet.downcase}, DELTA"
+    ], 4)
   end
 end

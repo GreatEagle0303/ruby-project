@@ -3,19 +3,16 @@ require 'generator/exercise_case'
 class TransposeCase < Generator::ExerciseCase
 
   def workload
-    [
-      "input = #{indent_heredoc(input_lines, 'INPUT', 2, delimiter_mod)}",
-      "",
-      "expected = #{indent_heredoc(expected, 'EXPECTED', 2, delimiter_mod)}",
-      "",
-      "assert_equal expected, Transpose.transpose(input)",
-    ]
+    %Q(input = #{indent_heredoc(input_lines, 'INPUT', 6, delimiter_mod)}\n) +
+      %Q(    actual = Transpose.transpose(input)\n) +
+      %Q(    expected = #{indent_heredoc(expected, 'EXPECTED', 6, delimiter_mod)}\n) +
+    '    assert_equal expected.strip, actual'
   end
 
   private
 
   def delimiter_mod
-    ".gsub(/^ {6}/, '').strip"
+    ".gsub(/^ {6}/, '')"
   end
 
 end

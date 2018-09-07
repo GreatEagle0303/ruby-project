@@ -1,10 +1,19 @@
 require 'generator/exercise_case'
 
 class CryptoSquareCase < Generator::ExerciseCase
+
   def workload
-    [
-      "plaintext = '#{plaintext}'\n",
-      assert_equal(expected, "Crypto.new(plaintext).ciphertext")
-    ].join
+    indent_lines([plaintext_setter, assertion], 4)
   end
+
+  private
+
+  def plaintext_setter
+    "plaintext = '#{plaintext}'"
+  end
+
+  def assertion
+    assert_equal { "Crypto.new(plaintext).ciphertext" }
+  end
+
 end

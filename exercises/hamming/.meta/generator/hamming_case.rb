@@ -2,16 +2,20 @@ require 'generator/exercise_case'
 
 class HammingCase < Generator::ExerciseCase
   def workload
-    if error_expected?
-      assert_raises(ArgumentError, subject_of_test)
+    if expects_error?
+      assert_raises(ArgumentError) { test_case }
     else
-      assert_equal(expected, subject_of_test)
+      assert_equal { test_case }
     end
   end
 
   private
 
-  def subject_of_test
+  def test_case
     "Hamming.compute('#{strand1}', '#{strand2}')"
+  end
+
+  def expects_error?
+    expected.is_a? Hash
   end
 end

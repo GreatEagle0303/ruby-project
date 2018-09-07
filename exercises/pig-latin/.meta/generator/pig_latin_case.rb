@@ -2,6 +2,6 @@ require 'generator/exercise_case'
 
 class PigLatinCase < Generator::ExerciseCase
   def workload
-    assert_equal(expected, "PigLatin.translate(#{phrase.inspect})")
+    assert_equal { "PigLatin.translate(#{input.inspect})" }
   end
 end

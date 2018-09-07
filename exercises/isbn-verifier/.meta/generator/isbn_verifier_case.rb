@@ -3,10 +3,12 @@ require 'generator/exercise_case'
 class IsbnVerifierCase < Generator::ExerciseCase
 
   def workload
-    [
-      "string = #{isbn.inspect}",
-      assert_or_refute(expected, "IsbnVerifier.valid?(string), #{failure_message}")
-    ]
+    indent_lines(
+      [
+        "string = #{input.inspect}",
+        "#{assert} IsbnVerifier.valid?(string), #{failure_message}"
+      ], 4
+    )
   end
 
   private
@@ -22,4 +24,5 @@ class IsbnVerifierCase < Generator::ExerciseCase
   def is_or_not
     expected ? 'is' : 'is not'
   end
+
 end

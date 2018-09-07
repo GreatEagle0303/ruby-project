@@ -1,14 +1,11 @@
 require 'generator/exercise_case'
 
 class FlattenArrayCase < Generator::ExerciseCase
-  def description
-    super.gsub(/null/,'nil')
-  end
 
   def workload
-    [
-      "flat_array = FlattenArray.flatten(#{input_array})",
-      "assert_equal #{expected}, flat_array"
-    ]
+    declaration = "fa = FlattenArray.flatten(#{canonical.input})"
+    assertion = "assert_equal #{canonical.expected}, fa"
+    indent_lines([declaration, assertion], 4)
   end
+
 end

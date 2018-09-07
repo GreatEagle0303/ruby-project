@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative 'bracket_push'
 
-# Common test data version: 1.4.0 602c610
+# Common test data version: 1.1.0 855c591
 class BracketPushTest < Minitest::Test
   def test_paired_square_brackets
     # skip
@@ -31,11 +31,6 @@ class BracketPushTest < Minitest::Test
   def test_paired_with_whitespace
     skip
     assert Brackets.paired?('{ }')
-  end
-
-  def test_partially_paired_brackets
-    skip
-    refute Brackets.paired?('{[])')
   end
 
   def test_simple_nested_brackets
@@ -68,11 +63,6 @@ class BracketPushTest < Minitest::Test
     refute Brackets.paired?('[({]})')
   end
 
-  def test_paired_and_incomplete_brackets
-    skip
-    refute Brackets.paired?('{}[')
-  end
-
   def test_math_expression
     skip
     assert Brackets.paired?('(((185 + 223.85) * 15) - 543)/2')
@@ -80,8 +70,8 @@ class BracketPushTest < Minitest::Test
 
   def test_complex_latex_expression
     skip
-    string = '\left(\begin{array}{cc} \frac{1}{3} & x\\ ' +
-             '\mathrm{e}^{x} &... x^2 \end{array}\right)'
-    assert Brackets.paired?(string)
+    str = '\left(\begin{array}{cc} \frac{1}{3} & x\\ '\
+          '\mathrm{e}^{x} &... x^2 \end{array}\right)'
+    assert Brackets.paired?(str)
   end
 end

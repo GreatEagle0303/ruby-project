@@ -2,14 +2,15 @@ require 'generator/exercise_case'
 
 class ConnectCase < Generator::ExerciseCase
 
-  def workload
+  def test_body
     [
       'board = [',
-      indent_by(2,board.map(&method(:single_quote)).join(",\n")),
+      '  ' + board.map(&method(:single_quote)).join(",\n      "),
       ']',
       'game = Board.new(board)',
-      "assert_equal #{single_quote(expected)}, game.winner, #{single_quote(description)}"
-    ].map {|line| line + "\n" }.join
+      "assert_equal #{single_quote(expected)}, game.winner, " +
+        single_quote(description)
+    ]
   end
 
   private

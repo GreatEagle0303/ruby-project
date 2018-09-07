@@ -3,13 +3,15 @@ require 'generator/exercise_case'
 class DifferenceOfSquaresCase < Generator::ExerciseCase
 
   def workload
-    "assert_equal #{underscore(expected)}, Squares.new(#{number}).#{action}\n"
+    %Q(assert_equal #{expected_formatted}, Squares.new(#{number}).#{action})
   end
 
   def action
-    case property
-    when 'differenceOfSquares' then 'difference'
-    else snake_case(property)
-    end
+    return 'difference' if property == 'differenceOfSquares'
+    property.gsub(/([OS])/) {|cap| "_#{$1.downcase}" }
+  end
+
+  def expected_formatted
+    expected.to_s.reverse.scan(/\d{1,3}/).join('_').reverse
   end
 end
