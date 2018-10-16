@@ -30,4 +30,8 @@ class QueenAttackCase < Generator::ExerciseCase
   def new_queen
     "Queens.new(white: #{parse_position queen})"
   end
+
+  def error_expected?
+    expected == -1
+  end
 end
