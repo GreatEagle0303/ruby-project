@@ -4,7 +4,7 @@ class OcrNumbersCase < Generator::ExerciseCase
   def workload
     [
       formatted_rows,
-      if error_expected?
+      if expected == -1
         assert_raises(ArgumentError, subject_of_test)
       else
         assert_equal(expected, subject_of_test)
