@@ -25,6 +25,14 @@ module Generator
       end
     end
 
+    def test_all_option
+      args = %w(-a)
+      assert_equal(
+        default_options.merge(all: true),
+        GeneratorOptparser.new(args, FixturePaths).options
+      )
+    end
+
     def test_help_option
       args = %w(-h)
       assert_equal(
@@ -77,6 +85,11 @@ module Generator
       assert_output nil, /#{expected_stderr}/ do
         refute GeneratorOptparser.new([], paths).options_valid?
       end
+    end
+
+    def test_validate_generate_all
+      args = ['--all']
+      assert GeneratorOptparser.new(args, FixturePaths).options_valid?
     end
 
     def test_validate_slug
