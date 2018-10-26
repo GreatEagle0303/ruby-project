@@ -28,7 +28,15 @@ module Generator
     end
 
     def generator(implementation)
-      GenerateTests.new(implementation)
+      generator_class.new(implementation)
+    end
+
+    def generator_class
+      update? ? UpdateVersionAndGenerateTests : GenerateTests
+    end
+
+    def update?
+      @options[:update]
     end
 
     def implementation(slug)

@@ -8,6 +8,10 @@ module Generator
         MinitestTestsFile.new(filename: File.join(exercise_path, minitest_tests_filename))
       end
 
+      def tests_version
+        TestsVersionFile.new(filename: File.join(meta_path, version_filename))
+      end
+
       def example_solution
         ExampleSolutionFile.new(filename: File.join(solutions_path, example_filename))
       end
@@ -42,6 +46,10 @@ module Generator
         "#{slug_underscored}_test.rb"
       end
 
+      def version_filename
+        '.version'
+      end
+
       def example_filename
         "#{slug_underscored}.rb"
       end
@@ -69,6 +77,16 @@ module Generator
 
       def slug_underscored
         slug.tr('-', '_')
+      end
+    end
+
+    class TestsVersionFile < Writable
+      def to_i
+        to_s.to_i
+      end
+
+      def increment
+        save(to_i + 1)
       end
     end
 

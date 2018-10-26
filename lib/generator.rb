@@ -17,4 +17,13 @@ module Generator
       build_tests
     end
   end
+
+  # Update everything.
+  class UpdateVersionAndGenerateTests < ImplementationDelegator
+    def call
+      update_tests_version
+      update_example_solution
+      build_tests
+    end
+  end
 end
