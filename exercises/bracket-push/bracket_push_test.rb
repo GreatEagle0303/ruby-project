@@ -1,8 +1,8 @@
 require 'minitest/autorun'
-require_relative 'matching_brackets'
+require_relative 'bracket_push'
 
 # Common test data version: 1.5.0 20dd164
-class MatchingBracketsTest < Minitest::Test
+class BracketPushTest < Minitest::Test
   def test_paired_square_brackets
     # skip
     assert Brackets.paired?('[]')
