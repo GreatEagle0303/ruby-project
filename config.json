@@ -221,7 +221,7 @@
         "math"
       ]
     },
-    { "slug": "resistor-colors",
+    { "slug": "resistor-color-duo",
       "uuid": "57b0c57e-26a5-4ccf-aaf2-2fefddd918c1",
       "core": false,
       "unlocked_by": null,
@@ -420,8 +420,8 @@
       "slug": "etl",
       "uuid": "0d66f3db-69a4-44b9-80be-9366f8b189ec",
       "core": false,
-      "unlocked_by": "scrabble-score",
-      "difficulty": 1,
+      "unlocked_by": "word-count",
+      "difficulty": 4,
       "topics": [
         "loops",
         "maps",
@@ -1171,21 +1171,6 @@
       "difficulty": 7,
       "topics": [
         "data_structures"
-      ]
-    },
-    {
-      "slug": "grep",
-      "uuid": "99485900-5d16-4848-af1c-2f1a62ad35ab",
-      "core": false,
-      "unlocked_by": "twelve-days",
-      "difficulty": 8,
-      "topics": [
-        "files",
-        "parsing",
-        "pattern_matching",
-        "regular_expressions",
-        "strings",
-        "text_formatting"
       ]
     }
   ]
