@@ -1,5 +1,5 @@
 class PrimeFactors
-  def self.of(number)
+  def self.for(number)
     factors = []
     divisor = 2
     while number > 1
