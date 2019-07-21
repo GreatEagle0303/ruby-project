@@ -27,8 +27,7 @@
         "strings"
       ]
     },
-    {
-      "slug": "resistor-color-duo",
+    { "slug": "resistor-color-duo",
       "uuid": "57b0c57e-26a5-4ccf-aaf2-2fefddd918c1",
       "core": true,
       "unlocked_by": null,
@@ -82,8 +81,8 @@
       "difficulty": 3,
       "topics": [
         "arrays",
-        "enumerable",
-        "loops"
+        "loops",
+        "enumerable"
       ]
     },
     {
@@ -93,9 +92,9 @@
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
-        "enumerable",
         "hash",
-        "loops"
+        "loops",
+        "enumerable"
       ]
     },
     {
@@ -129,9 +128,9 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "regular_expressions",
         "sequences",
-        "strings"
+        "strings", 
+        "regular_expressions"
       ]
     },
     {
@@ -242,7 +241,7 @@
         "maps",
         "transforming"
       ]
-    },
+    }, 
     {
       "slug": "robot-name",
       "uuid": "76a0fd0a-cc65-4be3-acc8-7348bb67ad5a",
@@ -1187,6 +1186,16 @@
         "regular_expressions",
         "strings",
         "text_formatting"
+      ]
+    },
+    {
+      "slug": "resistor-color",
+      "uuid": "685634dd-0b38-40bc-b0ad-e8aa2904035f",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "arrays"
       ]
     }
   ]
