@@ -14,7 +14,6 @@ module ResistorColorDuo
 
   def self.value(color_bands)
     color_bands
-      .first(2)
       .map { |color| COLORS.index(color) }
       .join
       .to_i
