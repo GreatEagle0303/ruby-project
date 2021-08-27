@@ -20,7 +20,7 @@ Attendee.new(106).height
 # => 106
 ```
 
-## 3. What is the ride pass' id
+## 3. What is the ride pass id
 
 Not all attendees have bought a ride pass, but we need to know if they have a pass or not. Implement the `Attendee#pass_id` getter for the `Attendee` class, it should return the instance's pass_id or `nil` if the Attendee doesn't have one.
 
@@ -31,7 +31,7 @@ Attendee.new(106).pass_id
 
 ## 4. Allow people to buy a pass
 
-Implement `Attendee#issue_pass!` to mutate the state of the instance, and set the pass id instance varaiable to the argument. It should return the pass id.
+Implement `Attendee#issue_pass!` to mutate the state of the instance, and set the pass id instance variable to the argument. It should return the pass id.
 
 ```ruby
 attendee = Attendee.new(106)
